@@ -10,7 +10,7 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 
-  <link href="css/style52.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="css/style58.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 
 <!--  Scripts -->
   <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
@@ -303,13 +303,12 @@
   </nav>  
 </div>
 
-
   <ul class="sidenav teal" id="mobile-demo">
     <center>
       <h5 style="color: white">Menu</h5>
     </center>
     <div class="divider"></div>
-        <li><a href="#!" data-target="slide-out" style="color: white">
+        <li><a href="#!" style="color: white">
         <i class="material-icons left" style="color: white">perm_contact_calendar</i>Perfil</a></li>
         <li><a href="#!" style="color: white">
           <i class="material-icons left" style="color: white">help</i>Ayuda</a></li>
@@ -325,11 +324,86 @@
 
 <script>
 
+
     $(document).ready(function(){
     $('.sidenav').sidenav();
   });
 
 
+function ApexSide(){
+
+    var inputH = document.getElementById('inputH').value;
+    var inputD = document.getElementById('inputD').value;
+    var inputM = document.getElementById('inputM').value;
+    var inputA = document.getElementById('inputA').value;
+
+        var options = {
+            chart: {
+                height: 270,
+                type: 'radialBar',
+            },
+            plotOptions: {
+                radialBar: {
+                    offsetY: -10,
+                    startAngle: 0,
+                    endAngle: 270,
+                    hollow: {
+                        margin: 1,
+                        size: '15%',
+                        background: 'transparent',
+                        image: undefined,
+                    },
+                    dataLabels: {
+                        name: {
+                            show: false,
+                            
+                        },
+                        value: {
+                            show: false,
+                        }
+                    }
+                }
+            }, 
+            colors: ['#3BE8B1', '#FF7777', '#903BE8', '#3BB1E8'],
+            series: [inputH, inputD, inputM, inputA],
+            labels: ['Hab En Casa', 'L. Diarios', 'L. Mensuales', 'L. Anuales'],
+            legend: {
+                show: true,
+                floating: true,
+                fontSize: '12px',
+                position: 'right',
+                offsetX: 110,
+                offsetY: 1,
+                labels: {
+                    useSeriesColors: true,
+                },
+                markers: {
+                    size: 0
+                },
+                formatter: function(seriesName, opts) {
+                    return seriesName + ":  " + opts.w.globals.series[opts.seriesIndex]
+                },
+                itemMargin: {
+                    horizontal: 1,
+                }
+            },
+            responsive: [{
+                breakpoint: 480,
+                options: {
+                    legend: {
+                        show: false
+                    }
+                }
+            }]
+        }
+
+       var chart = new ApexCharts(
+            document.querySelector("#chartside"),
+            options
+        );
+        
+        chart.render();
+}
 </script>
 
   <ul id="slide-out" class="sidenav">
@@ -347,10 +421,31 @@
           </div>
         </div>
       <a href="#email"><span id="emailS" class="side-color-text-head email"></span></a>
+
     </div></li>
 
-    <li><a href="#!" class="sidenav-titulos"><i class="material-icons"></i><b>Datos Principales</b></a></li>
-    <li><div class="divider"></div></li>
+
+  <!-- MENU DE VISTAS DEL PERFIL -->
+  <ul id='dropdown1' class='dropdown-content'>
+    <li><a href="#!" onclick="PerfilLista()"><i class="material-icons">list</i>Lista</a></li>
+    <a class="divider"></a>
+    <li><a href="#!" onclick="PerfilGrafica()" id="GraphCircle">
+      <i class="material-icons">data_usage</i>Gráfica</a></li>
+  </ul>
+
+<!-- HEADER QUE NO DESAPARECE // SELECCIONADOR DE VISTAS -->
+      <li><a href="#!" class="sidenav-titulos"><i class="material-icons"></i><b>Datos Principales  </b>
+        <button class='dropdown-trigger' href='#' data-target='dropdown1'
+        style="color: white; background-color: teal">Vista</button></a></li>
+
+<!-- INICIO DE VISTA PERFIL EN FORMA DE GRAFICA -->
+<div class="BeforeCirclePerfile" id="PerfilCirculo" hidden="">
+  <div id="chartside"></div>
+  <li><div class="divider"></div></li>
+    <li><a href="#!" class="sidenav-titulos"><i class="material-icons"></i><b>Datos Adicionales</b></a></li>
+     </div>
+
+<div id="PerfilLista"> <!-- INICIO DE VISTA PERFIL EN FORMA DE LISTA -->
     <li>
       <div class="BeforeItemBody">
         <div>
@@ -393,10 +488,14 @@
           <a href="#!" id="liAS" class="side-color-text-body"></a>
         </div>
       </div>
-    </li>       
+    </li> 
+      
     <li><div class="divider"></div></li>
     <li>
-      <li><a href="#!" class="sidenav-titulos"><i class="material-icons"></i><b>Datos Adicionales</b></a></li>
+    <li><a href="#!" class="sidenav-titulos"><i class="material-icons"></i><b>Datos Adicionales</b></a></li>
+
+   </div> <!-- FIN DE VISTA PERFIL EN FORMA DE LISTA -->
+
           <li><div class="divider"></div></li>
       <div class="BeforeItemBody">
         <div>
@@ -437,7 +536,7 @@
      data-product-info-link="3" onclick="MenuB()">
     <i class="material-icons teal-text">schedule</i>DATOS EN TIEMPO REAL</a></li>
 
-    <li class="tab"><a href="#test4" class="teal-text"
+    <li class="tab"><a href="#test4" class="teal-text" id="ApexChart" 
      data-product-info-link="3" onclick="MenuC()">
     <i class="material-icons teal-text">trending_up</i>ESTADISTICAS</a></li>
 
@@ -447,6 +546,11 @@
 
   </ul>
 </div>
+
+
+
+
+
 
 </div>
 </div>
@@ -578,7 +682,7 @@
   <div class="BeforeAlignBuscador">
     <div class="AlignBuscador">
   <div>
-  <input type="text" class="datepicker" id="fecha" placeholder="Fecha Específica" autocomplete="none">
+  <input type="text" class="datepicker" id="fecha2" placeholder="Fecha Específica" autocomplete="none">
     <a class="waves-dark btn" id="clicke"><i class="material-icons right">search</i>Buscar</a>
   </div>
     </div>
@@ -759,7 +863,7 @@
   <div class="BeforeAlignBuscador">
     <div class="AlignBuscador">
   <div>
-  <input type="text" class="datepicker" id="fecha2" placeholder="Fecha Específica" autocomplete="none">
+  <input type="text" class="datepicker" id="fecha3" placeholder="Fecha Específica" autocomplete="none">
     <a class="waves-dark btn" id="clicke2"><i class="material-icons right">search</i>Buscar</a>
   </div>
     </div>
@@ -796,7 +900,7 @@
   <div class="BeforeAlignBuscador">
     <div class="AlignBuscador">
   <div>
-  <input type="text" class="datepicker" id="fecha2" placeholder="Fecha Específica" autocomplete="none">
+  <input type="text" class="datepicker" id="fecha4" placeholder="Fecha Específica" autocomplete="none">
     <a class="waves-dark btn" id="clicke2"><i class="material-icons right">search</i>Buscar</a>
   </div>
     </div>
@@ -917,7 +1021,7 @@ function Circulos(){
      
     var gauge1 = loadLiquidFillGauge("fillgauge1", +inputH);
     var config1 = liquidFillGaugeDefaultSettings();
-    config1.circleColor = "#FF7777";
+    config1.circleColor = "#FF7777";  
     config1.textColor = "#FF4444";
     config1.waveTextColor = "#FF5858";
     config1.waveColor = "#E0A5A5";
@@ -1175,7 +1279,7 @@ function Circulos(){
 <div id="TablaEstadisticas" hidden=""> 
 
 <!-- ESTADISTICAS LAS 5 ULTIMAS FECHAS -->
-<div id="5Fechas">
+<div id="5Fechas" hidden="">
 
 <div class="cinco-fechas-borde">
 	<b><p>Fecha 1</p></b>
@@ -1206,13 +1310,23 @@ function Circulos(){
 </div>
 <div class="cinco-fechas-borde">
   <b><p>Fecha -4</p></b>
-  <input id="FechaActual3" value="">
+  <input id="FechaActual4" value="">
   <b><p>Datos Fecha -4</p></b>
-  <input id="fData3" value="">
-  <input id="lcData3" value="">
-  <input id="lnData3" value="">
-  <input id="tcData3" value="">
+  <input id="fData4" value="">
+  <input id="lcData4" value="">
+  <input id="lnData4" value="">
+  <input id="tcData4" value="">
 </div>
+<div class="cinco-fechas-borde">
+  <b><p>Fecha -5</p></b>
+  <input id="FechaActual5" value="">
+  <b><p>Datos Fecha -5</p></b>
+  <input id="fData5" value="">
+  <input id="lcData5" value="">
+  <input id="lnData5" value="">
+  <input id="tcData5" value="">
+</div>
+
 </div>
 
 
@@ -1220,100 +1334,287 @@ function Circulos(){
 	window.onload = function(){
   var fecha = new Date(); //Fecha 1
   var mes = fecha.getMonth(); //obteniendo mes "se le tiene que agregar +1"
-  var dia = fecha.getDate(); //obteniendo dia
+  var dia = fecha.getDate()-1; //obteniendo dia
   var ano = fecha.getFullYear(); //obteniendo año ==== dia+"-"+mes+"-"+ano
   document.getElementById('FechaActual1').value=dia+"-"+mes+"-"+ano; 
 
   var fecha = new Date(); //Fecha 2
   var mes = fecha.getMonth(); //obteniendo mes "se le tiene que agregar +1"
-  var dia = fecha.getDate()-1; //obteniendo dia
+  var dia = fecha.getDate()-2; //obteniendo dia
   var ano = fecha.getFullYear(); //obteniendo año ==== dia+"-"+mes+"-"+ano
   document.getElementById('FechaActual2').value=dia+"-"+mes+"-"+ano; 
 
   var fecha = new Date(); //Fecha 3
   var mes = fecha.getMonth(); //obteniendo mes "se le tiene que agregar +1"
-  var dia = fecha.getDate()-2; //obteniendo dia
+  var dia = fecha.getDate()-3; //obteniendo dia
   var ano = fecha.getFullYear(); //obteniendo año ==== dia+"-"+mes+"-"+ano
-  document.getElementById('FechaActual3').value=dia+"-"+mes+"-"+ano;   
+  document.getElementById('FechaActual3').value=dia+"-"+mes+"-"+ano;
+
+  var fecha = new Date(); //Fecha 4
+  var mes = fecha.getMonth(); //obteniendo mes "se le tiene que agregar +1"
+  var dia = fecha.getDate()-4; //obteniendo dia
+  var ano = fecha.getFullYear(); //obteniendo año ==== dia+"-"+mes+"-"+ano
+  document.getElementById('FechaActual4').value=dia+"-"+mes+"-"+ano;
+
+  var fecha = new Date(); //Fecha 3
+  var mes = fecha.getMonth(); //obteniendo mes "se le tiene que agregar +1"
+  var dia = fecha.getDate()-5; //obteniendo dia
+  var ano = fecha.getFullYear(); //obteniendo año ==== dia+"-"+mes+"-"+ano
+  document.getElementById('FechaActual5').value=dia+"-"+mes+"-"+ano;  
+
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 function Graph(){
-
-      google.charts.load('current', {'packages':['bar']});
-      google.charts.setOnLoadCallback(drawChart);
-
-      function drawChart() {
 
     var dia_1_f = document.getElementById('fData1').value;
     var dia_1_lc = document.getElementById('lcData1').value;
     var dia_1_ln = document.getElementById('lnData1').value;
     var dia_1_tc = document.getElementById('tcData1').value;
 
-        var data = google.visualization.arrayToDataTable([
-          ['Water Meter Web', 'Litros De Agua Consumidos', 'Expenses'],
-          [dia_1_f, dia_1_ln, dia_1_lc],
-          ['2015', 1170, 460],
-          ['2016', 660, 1120]
-          ]);
+    var dia_2_f = document.getElementById('fData2').value;
+    var dia_2_lc = document.getElementById('lcData2').value;
+    var dia_2_ln = document.getElementById('lnData2').value;
+    var dia_2_tc = document.getElementById('tcData2').value;    
+
+    var dia_3_f = document.getElementById('fData3').value;
+    var dia_3_lc = document.getElementById('lcData3').value;
+    var dia_3_ln = document.getElementById('lnData3').value;
+    var dia_3_tc = document.getElementById('tcData3').value; 
+
+    var dia_4_f = document.getElementById('fData4').value;
+    var dia_4_lc = document.getElementById('lcData4').value;
+    var dia_4_ln = document.getElementById('lnData4').value;
+    var dia_4_tc = document.getElementById('tcData4').value;     
+
+    var dia_5_f = document.getElementById('fData5').value;
+    var dia_5_lc = document.getElementById('lcData5').value;
+    var dia_5_ln = document.getElementById('lnData5').value;
+    var dia_5_tc = document.getElementById('tcData5').value; 
+
+  var color = ['#009E8A', '#00E396'];
+
+      var options = {
+        colors: color,
+            chart: {
+              height: 350,
+              type: 'bar',
+              toolbar: {
+          show: false,
+        },
+            },
+            title: {
+        text: 'Estadisticas De Los Ultimos 5 Días De Consumo De Agua',
+        offsetX: 10
+      },
+            plotOptions: {
+                bar: {
+                    horizontal: false,
+                    columnWidth: '55%',
+                },
+            },
+            dataLabels: {
+                enabled: false,
+            },
+            stroke: {
+                show: true,
+                width: 2,
+            },
+            series: [{
+                name: 'Litros Necesarios',
+                data: [dia_1_ln, dia_2_ln, dia_3_ln, dia_4_ln, dia_5_ln]
+            }, {
+                name: 'Litros Consumidos',
+                data: [dia_1_lc, dia_2_lc, dia_3_lc, dia_4_lc, dia_5_lc]
+            }],
+              legend: {
+                position: 'right',
+                offsetY: 50
+            },
+            xaxis: {
+                categories: [dia_1_f, dia_2_f, dia_3_f, dia_4_f, dia_5_f],
+            },
+            yaxis: {
+                title: {
+                    text: 'Litros De Agua'
+                }
+            },
+            fill: {
+                opacity: 1,
+            },
+            tooltip: {
+                y: {
+                    formatter: function (val) {
+                        return "" + val + " Litros"
+                    }
+                }
+            }
+        }
+
+        var chart = new ApexCharts(
+            document.querySelector("#chart"),
+            options
+        );
+
+        chart.render();
+
+//LINEAL CHART
 
         var options = {
-      title: 'Company Performance',
-      hAxis: {title: 'Water Meter Web', titleTextStyle: {color: 'black'}},
-      colors: ['#00bfa5', '#004d40'],
-      backgroundColor: { fill:'transparent' },
-      is3D:true
-	  };	
+            chart: {
+                toolbar: {
+             show: false,
+              },
+                height: 350,
+                type: 'line',
+                shadow: {
+                    enabled: false,
+                    color: '#bbb',
+                    top: 3,
+                    left: 2,
+                    blur: 3,
+                    opacity: 1
+                },
+            },
+            stroke: {
+                width: 7,   
+                curve: 'smooth'
+            },
+            series: [{
+                name: 'Lirtos Consumidos',
+                data: [0, dia_1_lc, dia_2_lc, dia_3_lc, dia_4_lc, dia_5_lc, 0]
+            }],
+            xaxis: {
+                categories: [0, dia_1_f, dia_2_f, dia_3_f, dia_4_f, dia_5_f, 0]
+            },
+            title: {
+                text: 'Estadisticas De Los Ultimos 5 Días De Consumo De Agua',
+                align: 'left',
+                style: {
+                    fontSize: "16px",
+                    color: 'black'
+                }
+            },
+            fill: {
+                type: 'gradient',
+                gradient: {
+                    shade: 'dark',
+                    gradientToColors: [ '#23EFAA'],
+                    shadeIntensity: 1,
+                    type: 'horizontal',
+                    opacityFrom: 1,
+                    opacityTo: 1,
+                    stops: [0, 100, 100, 100]
+                },
+            },
+            markers: {
+                size: 4,
+                opacity: 0.9,
+                colors: ["red"],
+                strokeColor: "#fff",
+                strokeWidth: 2,
+                 
+                hover: {
+                    size: 7,
+                }
+            },
+            yaxis: {
+                title: {
+                    text: 'Engagement',
+                },                
+            }
+        }
 
-        var chart = new google.charts.Bar(document.getElementById('columnchart_material'));
-        chart.draw(data, google.charts.Bar.convertOptions(options));
+       var chart = new ApexCharts(
+            document.querySelector("#chartline"),
+            options
+        );
+        
+        chart.render();
 
-      }
+}
 
 
+// GRAFICO DE PASTEL
 
-    //   google.charts.load('current', {'packages':['corechart']});
-    //   google.charts.setOnLoadCallback(drawChart);
+//       google.charts.load('current', {'packages':['corechart']});
+//       google.charts.setOnLoadCallback(drawChart);
 
-    //   function drawChart() {
-    //   	var dat = document.getElementById('lcData1').value;
-    //     var data = google.visualization.arrayToDataTable([
-    //       ['Task', 'Hours per Day'],
-    //       ['Work', +dat],
-    //       ['Eat',      2],
-    //       ['Commute',  2],
-    //       ['Watch TV', 2],
-    //       ['Sleep',    7]
-    //     ]);
+//       function drawChart() {
+//       	var dat = document.getElementById('lcData1').value;
+//         var data = google.visualization.arrayToDataTable([
+//           ['Task', 'Hours per Day'],
+//           ['Work', +dat],
+//           ['Eat',      2],
+//           ['Commute',  2],
+//           ['Watch TV', 2],
+//           ['Sleep',    7]
+//         ]);
 
-    //     var options = {
-    //       title: 'My Daily Activities',
-    //       backgroundColor: { fill:'transparent' }
-    //     };
+//         var options = {
+//           title: 'My Daily Activities',
+//           backgroundColor: { fill:'transparent' }
+//         };
 
-    //     var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+//         var chart = new google.visualization.PieChart(document.getElementById('piechart'));
 
-    //     chart.draw(data, options);
-    //   }
-    }
+//         chart.draw(data, options);
+//       }
+    
 
     </script>
 
+
+
+
+
+        <div class="Before5Dias">
+          <div id="chart" style="width: 90%; height: 100px;"></div>
+            <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+        </div>
+
+<div class="BeforeCollapside">
+  <div class="collapsible-all">
+    <ul class="collapsible popout transparent">
+    <li> 
+      <div class="collapsible-header grey lighten-2"><i class="material-icons">
+      equalizer</i>DESCRIPCIÓN DE GRÁFICO DE BARRAS</div>
+      <div class="collapsible-body">
+
+      </div>
+    </li>
+    <li>
+  </ul>
+  </div>
+</div>
+
+<br>
+<hr style="width:90%">
+<br>
+
+        <div class="Before5Dias">
+          <div id="chartline" style="width: 90%; height: 100px;"></div>
+            <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+        </div>
+
    <!--  <div id="piechart" style="width: 900px; height: 500px;"></div> -->
-    <div id="columnchart_material" style="width: 800px; height: 500px;"></div>
+<div class="BeforeCollapside">
+  <div class="collapsible-all">
+    <ul class="collapsible popout transparent">
+    <li> 
+      <div class="collapsible-header grey lighten-2"><i class="material-icons">
+      show_chart</i>DESCRIPCIÓN DE GRÁFICO LINEAL</div>
+      <div class="collapsible-body">
+
+      </div>
+    </li>
+    <li>
+  </ul>
+  </div>
+</div>
+
+
+    
 </div>
 
 <br>
@@ -1366,7 +1667,7 @@ function Graph(){
           </div>
         </footer>
 
-	  <script src="js/app5.js"></script>
+	  <script src="js/app7.js"></script>
   </body>
 </html>
 

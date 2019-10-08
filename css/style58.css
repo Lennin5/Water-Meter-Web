@@ -1,6 +1,3 @@
-.cinco-fechas-borde{
-		border: 1px solid red;
-}
 
 /*input[type="range"] {
    position: absolute;
@@ -96,6 +93,7 @@ h2, h3, h5{
 	width: 97%;
 }  
 
+
 #fecha{
 /*	border: 1px solid black;*/
     border-bottom: 2px solid #4db6ac;
@@ -104,6 +102,20 @@ h2, h3, h5{
 }
 
 #fecha2{
+/*	border: 1px solid black;*/
+    border-bottom: 2px solid #4db6ac;
+	width: 50%;
+	height: 35px;
+}
+
+#fecha3{
+/*	border: 1px solid black;*/
+    border-bottom: 2px solid #4db6ac;
+	width: 50%;
+	height: 35px;
+}
+
+#fecha4{
 /*	border: 1px solid black;*/
     border-bottom: 2px solid #4db6ac;
 	width: 50%;
@@ -354,3 +366,32 @@ h2, h3, h5{
 	color: white;
 	
 }
+
+
+
+
+.Before5Dias{
+/*	border: 1px solid red;*/
+	display: flex;
+	justify-content: center;
+}
+
+.cinco-fechas-borde{
+		border: 1px solid red;
+}
+
+.BeforeCollapside{
+/*		border: 1px solid red;*/
+	display: flex;
+	justify-content: center;
+}
+
+.collapsible-all{
+	width: 90%;
+}
+
+.BeforeCirclePerfile{
+	display: flex;
+	justify-content: flex-end;
+}
+

@@ -22,6 +22,8 @@ function ingresar(){
 
   console.log(errorCode);
 
+
+
     if (errorCode == "auth/invalid-email"){
     $(document).ready(function(){
     $('#modalInvalidEmail').modal();
@@ -101,19 +103,22 @@ function observador(){
   var fecha = document.getElementById('fecha').value;    
   var tablc = document.getElementById('tablc');
   var dbRef = firebase.database().ref("Usuarios/"+uid+"/Datos_Consumo_De_Agua/Dia/"+fecha+"/").child('Litros_Consumidos');
-  dbRef.on('value', snap => tablc.innerHTML = snap.val().replace(/['"]+/g, ''));  
+  dbRef.on('value', snap => tablc.innerHTML = snap.val().replace(/['"]+/g, '')+" Litros");  
 
   var fecha = document.getElementById('fecha').value;    
   var tabln = document.getElementById('tabln');
   var dbRef = firebase.database().ref("Usuarios/"+uid+"/Datos_Consumo_De_Agua/Dia/"+fecha+"/").child('Litros_Necesarios');
-  dbRef.on('value', snap => tabln.innerHTML = snap.val().replace(/['"]+/g, ''));
+  dbRef.on('value', snap => tabln.innerHTML = snap.val().replace(/['"]+/g, '')+" Litros");
 
   var fecha = document.getElementById('fecha').value;    
   var tabtc = document.getElementById('tabtc');
   var dbRef = firebase.database().ref("Usuarios/"+uid+"/Datos_Consumo_De_Agua/Dia/"+fecha+"/").child('Tipo_Consumo');
   dbRef.on('value', snap => tabtc.innerHTML = snap.val().replace(/['"]+/g, ''));
 
-    }  ); 
+
+
+    }); 
+
 
 
 
@@ -127,12 +132,12 @@ function observador(){
   document.getElementById('TablaNotificaciones').style.display = 'none';
   document.getElementById('TablaDiaBusqueda2').style.display = 'block';
     
-  var fecha = document.getElementById('fecha2').value;    
+  var fecha = document.getElementById('fecha3').value;    
   var tabfechanoti = document.getElementById('tabfechanoti');
   var dbRef = firebase.database().ref("Usuarios/"+uid+"/Notificaciones/"+fecha+"/").child('Fecha');
   dbRef.on('value', snap => tabfechanoti.innerHTML = snap.val().replace(/['"]+/g, ''));
 
-  var fecha = document.getElementById('fecha2').value;    
+  var fecha = document.getElementById('fecha3').value;    
   var tabreporte = document.getElementById('tabreporte');
   var dbRef = firebase.database().ref("Usuarios/"+uid+"/Notificaciones/"+fecha+"/").child('Reporte');
   dbRef.on('value', snap => tabreporte.innerHTML = snap.val().replace(/['"]+/g, ''));  
@@ -142,6 +147,7 @@ function observador(){
 
 
 
+// setInterval("Buscar_Fecha()", 1000);
 
   function Buscar_Fecha(){
 
@@ -161,9 +167,16 @@ ref.orderByChild("Fecha").on("child_added", function(snapshot){
   var cell3 = row.insertCell(2);
   var cell4 = row.insertCell(3);
   // asigna a las celdas el valir del Child especificado
+
+  function sortFunction(a,b){  
+    var dateA = new Date(a.date).getTime();
+    var dateB = new Date(b.date).getTime();
+    return dateA > dateB ? 1 : -1;  
+};
+
   cell1.innerHTML = d.Fecha.replace(/['"]+/g, '');
-  cell2.innerHTML = d.Litros_Consumidos.replace(/['"]+/g, '');
-  cell3.innerHTML = d.Litros_Necesarios.replace(/['"]+/g, '');
+  cell2.innerHTML = d.Litros_Consumidos.replace(/['"]+/g, '')+" Litros";
+  cell3.innerHTML = d.Litros_Necesarios.replace(/['"]+/g, '')+" Litros";
   cell4.innerHTML = d.Tipo_Consumo.replace(/['"]+/g, '');
     }
   });
@@ -418,6 +431,46 @@ function Get_Datos_Usuario(){
   var dbRef = firebase.database().ref("Usuarios/"+uid+"/Datos_Consumo_De_Agua/Dia/"+FechaActual3+"/").child('Tipo_Consumo');
   dbRef.on('value', snap => tcData3.value = snap.val().replace(/['"]+/g, ''));  
 
+                                                //DIA 4
+                                                
+  var FechaActual4 = document.getElementById('FechaActual4').value;
+
+  var fData4 = document.getElementById('fData4');
+  var dbRef = firebase.database().ref("Usuarios/"+uid+"/Datos_Consumo_De_Agua/Dia/"+FechaActual4+"/").child('Fecha');
+  dbRef.on('value', snap => fData4.value = snap.val().replace(/['"]+/g, ''));
+
+  var lcData4 = document.getElementById('lcData4'); 
+  var dbRef = firebase.database().ref("Usuarios/"+uid+"/Datos_Consumo_De_Agua/Dia/"+FechaActual4+"/").child('Litros_Consumidos');
+  dbRef.on('value', snap => lcData4.value = snap.val().replace(/['"]+/g, '')); 
+
+  var lnData4 = document.getElementById('lnData4');
+  var dbRef = firebase.database().ref("Usuarios/"+uid+"/Datos_Consumo_De_Agua/Dia/"+FechaActual4+"/").child('Litros_Necesarios');
+  dbRef.on('value', snap => lnData4.value = snap.val().replace(/['"]+/g, ''));
+
+  var tcData4 = document.getElementById('tcData4');
+  var dbRef = firebase.database().ref("Usuarios/"+uid+"/Datos_Consumo_De_Agua/Dia/"+FechaActual4+"/").child('Tipo_Consumo');
+  dbRef.on('value', snap => tcData4.value = snap.val().replace(/['"]+/g, ''));  
+
+                                                //DIA 5
+                                                
+  var FechaActual5 = document.getElementById('FechaActual5').value;
+
+  var fData5 = document.getElementById('fData5');
+  var dbRef = firebase.database().ref("Usuarios/"+uid+"/Datos_Consumo_De_Agua/Dia/"+FechaActual5+"/").child('Fecha');
+  dbRef.on('value', snap => fData5.value = snap.val().replace(/['"]+/g, ''));
+
+  var lcData5 = document.getElementById('lcData5'); 
+  var dbRef = firebase.database().ref("Usuarios/"+uid+"/Datos_Consumo_De_Agua/Dia/"+FechaActual5+"/").child('Litros_Consumidos');
+  dbRef.on('value', snap => lcData5.value = snap.val().replace(/['"]+/g, '')); 
+
+  var lnData5 = document.getElementById('lnData5');
+  var dbRef = firebase.database().ref("Usuarios/"+uid+"/Datos_Consumo_De_Agua/Dia/"+FechaActual5+"/").child('Litros_Necesarios');
+  dbRef.on('value', snap => lnData5.value = snap.val().replace(/['"]+/g, ''));
+
+  var tcData5 = document.getElementById('tcData5');
+  var dbRef = firebase.database().ref("Usuarios/"+uid+"/Datos_Consumo_De_Agua/Dia/"+FechaActual5+"/").child('Tipo_Consumo');
+  dbRef.on('value', snap => tcData5.value = snap.val().replace(/['"]+/g, ''));  
+
 }
 
   }else{
@@ -464,6 +517,7 @@ function Get_Datos_Usuario(){
   function ActDatos(){
   document.getElementById('TablaDia').style.display = 'block';
   document.getElementById('TablaDiaBusqueda').style.display = 'none';
+
 }
 
   function ActDatosNoti(){
@@ -539,10 +593,16 @@ function Get_Datos_Usuario(){
 
   }
 
+  $("#GraphCircle").one( "click", function() {
+    setTimeout("ApexSide()", 1000);
+  });
+
+  $("#ApexChart").one( "click", function() {
+    setTimeout("Graph()", 1000);
+  });
 
   function MenuC(){
-    setTimeout("Graph()", 1000);
-
+    
     document.getElementById('TablaDia').style.display = 'none';
     document.getElementById('TablaDiaBusqueda').style.display = 'none';
     document.getElementById('TablaMes').style.display = 'none';
@@ -768,4 +828,15 @@ setInterval("NotificacionesS()", 1);
 
 
 
-  
+  function PerfilLista(){
+        document.getElementById('PerfilLista').style.display = 'block';
+        document.getElementById('PerfilCirculo').style.display = 'none';
+  }
+
+    function PerfilGrafica(){
+        document.getElementById('PerfilLista').style.display = 'none';
+        document.getElementById('PerfilCirculo').style.display = 'block';
+  }
+
+
+
