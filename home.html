@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Water Meter</title>
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="css/style3.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+
+<!--  Scripts -->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="js/materialize.js"></script>
+  <script src="js/init5.js"></script>
+<!-- Firebase -->
+<script src="https://www.gstatic.com/firebasejs/6.6.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/3.1.0/firebase-database.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyBy7pQhsFk8l6t2Lq3XerI42mM-_Dpoie0",
+    authDomain: "watermeter-1457e.firebaseapp.com",
+    databaseURL: "https://watermeter-1457e.firebaseio.com",
+    projectId: "watermeter-1457e",
+    storageBucket: "",
+    messagingSenderId: "784801844147",
+    appId: "1:784801844147:web:9b7c7904076b6ef9e599c6"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+</script>
+
+
+</head>
+
+<body>
+
+	
+  <div id="Home">
+  <h1>Bienvenido</h1>
+  <p id="resultado"></p>
+
+
+  <button onclick="Salir()">Salir</button>
+  </div>  
+
+<br><br>
+
+   <button onclick="Buscar()">Buscar</button>
+
+<br>
+<br>  
+
+ <table>
+     <thead>
+            <tr>
+                <th  style="color:black">Fecha</th>
+                <th  style="color:black">Litros Consumidos</th>
+                <th  style="color:black">Litros Necesarios</th>
+                <th  style="color:black">Tipo De Consumo</th>                                      
+             </tr>
+     </thead>
+     <tbody id="tabla">  
+          
+     </tbody>
+ </table>
+
+
+
+
+  <table>
+     <thead>
+            <tr>
+                <th  style="color:black">Mes</th>
+                <th  style="color:black">Litros Consumidos</th>
+                <th  style="color:black">Litros Necesarios</th>
+                <th  style="color:black">Tipo De Consumo</th>                                      
+             </tr>
+     </thead>
+     <tbody id="tabla2">  
+          
+     </tbody>
+ </table>
+
+  <script src="js/app.js"></script>
+</body>
+<script>
+
+
+
+
+
+
+
+  
+</script>
+</html>
+
+

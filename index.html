@@ -1,0 +1,1365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Water Meter Web</title>
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>		
+
+  <link rel="icon" href="img/Inicio.jpg">
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+
+  <link href="css/style52.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+
+<!--  Scripts -->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="js/materialize.js"></script>
+
+  <script src="js/init13.js"></script>
+
+<!-- Firebase -->
+  <script src="https://www.gstatic.com/firebasejs/6.6.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/3.1.0/firebase-database.js"></script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+<!-- D3 -->
+
+  <script src="http://d3js.org/d3.v3.min.js" language="JavaScript"></script>
+  <script src="js/liquidFillGauge.js" language="JavaScript"></script>
+  <style>
+      .liquidFillGaugeText { font-family: Arial; font-weight: bold; }
+  </style>
+
+
+
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyBy7pQhsFk8l6t2Lq3XerI42mM-_Dpoie0",
+    authDomain: "watermeter-1457e.firebaseapp.com",
+    databaseURL: "https://watermeter-1457e.firebaseio.com",
+    projectId: "watermeter-1457e",
+    storageBucket: "",
+    messagingSenderId: "784801844147",
+    appId: "1:784801844147:web:9b7c7904076b6ef9e599c6"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+
+
+</script>
+
+</head>
+
+<body bgcolor="#fafafa">
+	
+
+
+<div id="Login"> <!-- START DE DIV "LOGIN" -->
+
+  <nav>
+    <div class="nav-wrapper  teal">
+      <a href="#" class="brand-logo">Water Meter Web</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <a class="waves-effect waves-dark btn teal modal-trigger" href="#modal1">
+        	<i class="material-icons left">account_box</i>Registrarme</a>
+        <li><a href="collapsible.html"></a></li>
+      </ul>
+    </div>
+  </nav>
+
+<br>	
+<br>
+
+<div class="Main">
+	
+  <div class="slider">
+    <ul class="slides transparent">
+      <li>
+        <!-- <img src="img/1.jpg"> --> <!-- random image -->
+        <div class="caption center-align">
+          <h3>Pero el que beba del agua que yo le daré, no tendrá sed jamás</h3>
+          <h5>Juan 4:14</h5>
+        </div>
+      </li>
+      <li>
+        <!-- <img src="img/2.png"> --> <!-- random image -->
+        <div class="caption center-align">
+          <h2>Si hay magia en este planeta,</h2>
+          <h5>está contenida en el agua.</h5>
+        </div>
+      </li>
+      <li>
+        <!-- <img src="img/3.png"> --> <!-- random image -->
+        <div class="caption center-align">
+          <h2>Olvidamos que el ciclo del agua y de la vida</h2>
+          <h5>son uno solo.</h5>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+
+
+
+
+  <div class="col s12 m7" >
+<!--     <h2 class="header">Iniciar Sesion</h2> -->
+    <div class="card horizontal grey lighten-4">
+      <div class="card-image">
+        <img src="img/logoroundPNG.png">
+      </div>
+      <div class="card-stacked">
+        <div class="card-content">
+
+        	<div class="Main_Login">
+
+        		<div>
+  <h3>Iniciar Sesión</h3>
+
+   <div class="row">
+    <div class="col s12">
+      <div class="row">
+
+        <div class="input-field col s12">
+          <i class="material-icons prefix">email</i>
+          <input type="text" id="email2">
+          <label>Correo Electrónico</label>
+        </div>
+
+		        <div class="input-field col s12">
+          <i class="material-icons prefix">lock</i>
+          <input type="password" id="pass2">
+          <label>Contraseña</label>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+        		</div>
+        	</div>
+
+        <div class="Main_BtnIngresar">
+        	<div> 
+            <!-- setTimeout('ingresar()',3000); -->
+        		<a onclick="ingresar()"
+             class="btn">
+        			<i class="material-icons left"></i>Ingresar</a>
+        	</div>
+        </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<br>
+
+  <!-- MODAL CORREO INCORRECTO -->
+  <div id="modalInvalidEmail" class="modal">
+    <div class="modal-content">
+      <h4>Correo Electronico Invalido</h4>
+      <p>A bunch of text</p>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+    </div>
+  </div>
+
+  <!-- MODAL PASS INCORRECTA -->
+  <div id="modalInvalidPass" class="modal">
+    <div class="modal-content">
+      <h4>ContraseñaIncorrecta</h4>
+      <p>A bunch of text</p>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+    </div>
+  </div>
+
+  <!-- MODAL USUARIO NO EXISTE -->
+  <div id="modalUserNotFound" class="modal">
+    <div class="modal-content">
+      <h4>Usuario No Encontrado</h4>
+      <p>A bunch of text</p>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+    </div>
+  </div>
+
+
+  <!-- MODAL REGISTRAR NO FUNCIONA -MODAL  -->
+  <div id="modal1" class="modal">
+    <div class="modal-content">
+      <h4>Modal Header</h4>
+      <p>A bunch of text</p>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class="modal-close waves-effect waves-green btn-flat"></a>
+    </div>
+  </div>
+
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+</div><!--  END DE DIV "LOGIN" -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="Home"> <!-- START DE DIV "HOME" -->
+
+  <!-- MODAL WATER METER VIDEO  -->
+  <div id="modalCoffee" class="modal">
+    <div class="modal-content" style="background-color: black">
+      <center>
+        <video src="video/WaterMeterWeb.mp4" width="85%" controls>
+      </center>
+  
+    </div>
+    <div class="modal-footer" style="background-color: #26a69a">
+      <a href="#!" class="modal-close waves-effect waves-teal btn-flat"
+      style="color: white">Volver</a>
+    </div>
+  </div>
+
+
+  <!-- MODAL AYUDA -->
+  <div id="modalAyuda" class="modal bottom-sheet">
+    <div class="modal-content">
+      <h4>Modal Header</h4>
+      <p>A bunch of text</p>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+    </div>
+  </div>
+
+  <!-- MODAL INFO -->
+  <div id="modalInfo" class="modal">
+    <div class="modal-content">
+      <h4>Modal Info</h4>
+      <p>A bunch of text</p>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class="modal-close waves-effect waves-teal btn-flat">Agree</a>
+    </div>
+  </div>  
+
+<div class="navbar-fixed">
+  <nav>
+    <div class="nav-wrapper teal">
+      <a href="#!" class="brand-logo" id="apellido"></a>
+      <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+      <ul class="right hide-on-med-and-down">
+       <li>
+          <div class="BeforeUserTxt">
+            <div>
+              <i class="material-icons right">perm_contact_calendar</i>
+                </div>
+            <div>
+              <a href="#!" data-target="slide-out" id="nombreuser" class="left-align"></a>
+            </div>
+          </div>
+        </li>
+        <li><a href="#modalAyuda" class="modal-trigger"><i class="material-icons left">help</i>Ayuda</a></li>
+        <li><a href="#modalInfo" class="modal-trigger"><i class="material-icons left">info</i>Información</a></li>
+        <li><a href="#!" onclick="Salir()"><i class="material-icons left">subdirectory_arrow_left</i>
+      Cerrar Sesion</a></li>
+      <li><a href="#!"></a></li>
+      </ul>
+    </div>
+  </nav>  
+</div>
+
+
+  <ul class="sidenav teal" id="mobile-demo">
+    <center>
+      <h5 style="color: white">Menu</h5>
+    </center>
+    <div class="divider"></div>
+        <li><a href="#!" data-target="slide-out" style="color: white">
+        <i class="material-icons left" style="color: white">perm_contact_calendar</i>Perfil</a></li>
+        <li><a href="#!" style="color: white">
+          <i class="material-icons left" style="color: white">help</i>Ayuda</a></li>
+        <li><a href="#!" style="color: white">
+          <i class="material-icons left" style="color: white">info</i>Información</a></li>
+        <li><a href="#!" onclick="Salir()" style="color: white">
+          <i class="material-icons left" style="color: white">subdirectory_arrow_left</i>
+      Cerrar Sesion</a></li>
+  </ul>
+
+
+<br>
+
+<script>
+
+    $(document).ready(function(){
+    $('.sidenav').sidenav();
+  });
+
+
+</script>
+
+  <ul id="slide-out" class="sidenav">
+    <li><div class="user-view">
+      <div class="background">
+        <img src="img/cardhead.jpg" width="300" height="300" id="sidenav-image">
+      </div>
+        <a href="#user"><img src="img/backgroundteal.png" class="circle" id="circle"></a> <!-- IMAGEN -->
+        <div class="BeforeSpan">
+          <div>
+            <h5 id="nomS" class="side-color-text-head"></h5>
+          </div>
+          <div>
+            <h5 id="apeS" class="side-color-text-head"></h5>
+          </div>
+        </div>
+      <a href="#email"><span id="emailS" class="side-color-text-head email"></span></a>
+    </div></li>
+
+    <li><a href="#!" class="sidenav-titulos"><i class="material-icons"></i><b>Datos Principales</b></a></li>
+    <li><div class="divider"></div></li>
+    <li>
+      <div class="BeforeItemBody">
+        <div>
+          <i class="material-icons small icon-sidenav">group</i>
+        </div>
+        <div>
+          <a href="#!" id="habS" class="side-color-text-body"></a>
+        </div>
+      </div>
+    </li>
+    <div class="divider"></div>
+    <li>
+      <div class="BeforeItemBody">
+        <div>
+          <i class="material-icons small icon-sidenav">view_comfy</i>
+        </div>
+        <div>
+          <a href="#!" id="liDS" class="side-color-text-body"></a>
+        </div>
+      </div>
+    </li>
+    <li><div class="divider"></div></li>
+    <li>
+      <div class="BeforeItemBody">
+        <div>
+          <i class="material-icons small icon-sidenav">view_compact</i>
+        </div>
+        <div>
+          <a href="#!" id="liMS" class="side-color-text-body"></a>
+        </div>
+      </div>
+    </li>    
+    <li><div class="divider"></div></li>
+    <li>
+      <div class="BeforeItemBody">
+        <div>
+          <i class="material-icons small icon-sidenav">view_stream</i>
+        </div>
+        <div>
+          <a href="#!" id="liAS" class="side-color-text-body"></a>
+        </div>
+      </div>
+    </li>       
+    <li><div class="divider"></div></li>
+    <li>
+      <li><a href="#!" class="sidenav-titulos"><i class="material-icons"></i><b>Datos Adicionales</b></a></li>
+          <li><div class="divider"></div></li>
+      <div class="BeforeItemBody">
+        <div>
+          <i class="material-icons small icon-sidenav">notifications</i>
+        </div>
+        <div>
+          <a href="#!" id="notS" class="side-color-text-body"></a>
+        </div>
+      </div>
+    </li>  
+    <li><div class="divider"></div></li>  
+    <li>
+      <div class="BeforeItemBody">
+        <div>
+          <i class="material-icons small icon-sidenav">brightness_6</i>
+        </div>
+        <div>
+          <a href="#!" id="moS" class="side-color-text-body"></a>
+        </div>
+      </div>
+    </li>        
+    <li><div class="divider"></div></li>            
+  </ul>
+
+
+
+  <div class="BeforeMenuPrinc">
+  <div class="MenuPrinc" id="MenuTab1">
+
+<div class="tab-wrapper card-panel hoverable" id="MenuTab2"> <!-- grey lighten 5 -->
+  <ul class="product-info-tab-links" id="MenuTab3">
+<!--     <li><a href="#" class="active" data-product-info-link="1">Features</a></li> -->
+    <li class="tab" id="MenuLetra"><a href="#test4" class="teal-text"
+     data-product-info-link="1" onclick="MenuA()">
+    <i class="material-icons teal-text">event</i>HISTORIAL DE CONSUMO DE AGUA</a></li>
+
+    <li class="tab"><a href="#test4" class="teal-text active"
+     data-product-info-link="3" onclick="MenuB()">
+    <i class="material-icons teal-text">schedule</i>DATOS EN TIEMPO REAL</a></li>
+
+    <li class="tab"><a href="#test4" class="teal-text"
+     data-product-info-link="3" onclick="MenuC()">
+    <i class="material-icons teal-text">trending_up</i>ESTADISTICAS</a></li>
+
+    <li class="tab"><a href="#test4" class="teal-text"
+     data-product-info-link="3" onclick="MenuD()">
+    <i class="material-icons teal-text">event_note</i>HISTORIAL DE NOTIFICACIONES</a></li>
+
+  </ul>
+</div>
+
+</div>
+</div>
+
+ 
+<br>
+
+
+<form action="#" class="left" hidden="">
+  <div class="switch">
+    <label>
+      Off
+      <input type="checkbox" value="1">
+      <span class="lever"></span>
+      On
+    </label>
+  </div>
+</form>
+
+
+
+
+
+<div class="fixed-action-btn direction-top porfile">
+  <div>
+    <i class="material-icons medium" style="color: #f5f5f5">perm_contact_calendar</i>
+  </div>
+  <div>
+    <a href="#!" data-target="slide-out" class="sidenav-trigger btn teal" id="menu">Ver Perfil</a>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+<div id="TablaDia" hidden="">
+
+<!-- Mostrando registros por:  -->
+
+  <div class="BeforeAlignBuscador2" id="BeforeAlignBuscador3">
+    <div class="AlignBuscador2">
+      <div>
+          <!-- Dropdown Trigger -->
+          <label for="" id="HolaDia">Hola</label>
+              <label class="lavel" id="MostrandoRegPorDia">Mostrando Registros Por</label>
+
+  <a class='dropdown-trigger btn' href='#' data-target='DropdownDia' id="textdrop">Dia</a>
+
+  <!-- Dropdown Structure -->
+  <ul id='DropdownDia' class='dropdown-content'>
+    <li class="divider" tabindex="-1"></li>
+    <li><a href="#!" onclick="Dia()"><i class="material-icons">view_comfy</i>Dia</a></li>
+    <li class="divider" tabindex="-1"></li>
+    <li><a href="#!" onclick="Mes()"><i class="material-icons">view_compact</i>Mes</a></li>
+    <li class="divider" tabindex="-1"></li>
+    <li><a href="#!" onclick="Anio()"><i class="material-icons">view_stream</i>Año</a></li>
+  </ul>
+      </div>
+    </div>
+</div>  
+
+<!-- BUSCADOR DIA  -->       
+
+  <div class="BeforeAlignBuscador">
+    <div class="AlignBuscador">
+  <div>
+  <input type="text" class="datepicker" id="fecha" placeholder="Fecha Específica" autocomplete="none">
+    <a class="waves-dark btn" id="clicke"><i class="material-icons right">search</i>Buscar</a>
+  </div>
+    </div>
+</div>
+
+<br>
+
+  <div class="AlignTabla">
+  <div class="Tabla">
+   <table class="centered">
+     <thead class="TablaHead">
+            <tr>
+                <th class="TablaHead">Fecha</th>
+                <th class="TablaHead">Litros Consumidos</th>
+                <th class="TablaHead">Litros Necesarios</th>
+                <th class="TablaHead">Tipo De Consumo</th>                                      
+             </tr>
+     </thead>
+     <tbody id="tabla" class="TablaBody">  
+
+     </tbody>
+ </table>
+</div>
+</div>
+<br>
+<br>
+<br>
+</div>
+
+
+<div id="TablaDiaBusqueda" hidden="">
+
+<!-- Mostrando registros por:  -->
+
+  <div class="BeforeAlignBuscador2" id="BeforeAlignBuscador3">
+    <div class="AlignBuscador2">
+      <div>
+          <!-- Dropdown Trigger -->
+          <label for="" style="color: white">Hola</label>
+              <label style="color: black" class="lavel">Mostrando Registros Por</label>
+
+  <a class='dropdown-trigger btn' href='#' data-target='DropdownBusqueda' id="textdrop">Dia</a>
+
+  <!-- Dropdown Structure -->
+  <ul id='DropdownBusqueda' class='dropdown-content'>
+    <li class="divider" tabindex="-1"></li>
+    <li><a href="#!" onclick="Dia()"><i class="material-icons">view_comfy</i>Dia</a></li>
+    <li class="divider" tabindex="-1"></li>
+    <li><a href="#!" onclick="Mes()"><i class="material-icons">view_compact</i>Mes</a></li>
+    <li class="divider" tabindex="-1"></li>
+    <li><a href="#!" onclick="Anio()"><i class="material-icons">view_stream</i>Año</a></li>
+  </ul>
+      </div>
+    </div>
+</div> 
+
+  <div class="BeforeAlignBuscador">
+    <div class="AlignBuscador">
+  <div>
+  <input type="text" class="datepicker" id="fecha" placeholder="Fecha Específica" autocomplete="none">
+    <a class="waves-dark btn" id="clicke"><i class="material-icons right">search</i>Buscar</a>
+  </div>
+    </div>
+</div> 
+<center>
+  <h3>Resultados:</h3>
+</center>
+  <div class="BeforeActDatos">
+    <div class="ActDatos">
+      <div>
+        <a class="waves-dark btn" onclick="ActDatos()" id="ActDatos">
+          <i class="material-icons left">refresh</i>Actualizar Datos</a>
+      </div>
+  </div>
+</div>
+<br>
+  <div class="AlignTabla">
+  <div class="Tabla">
+   <table class="centered">
+     <thead class="TablaHead">
+            <tr>
+                <th class="TablaHead" id="textdia">Fecha</th>
+                <th class="TablaHead">Litros Consumidos</th>
+                <th class="TablaHead">Litros Necesarios</th>
+                <th class="TablaHead">Tipo De Consumo</th>                                      
+             </tr>
+     </thead>
+     <tbody id="tabla" class="TablaBody">
+          <tr>
+          <td id="tabfecha"></td>
+          <td id="tablc"></td>
+          <td id="tabln"></td>
+          <td id="tabtc"></td>
+          </tr>  
+     </tbody>
+ </table>
+
+</div>
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+</div>
+
+
+<div id="TablaMes" hidden="">
+
+<!-- Mostrando registros por:  -->
+
+  <div class="BeforeAlignBuscador2" id="BeforeAlignBuscador3">
+    <div class="AlignBuscador2">
+      <div>
+          <!-- Dropdown Trigger -->
+          <label for="" id="HolaMes">Hola</label>
+              <label id="MostrandoRegPorMes" class="lavel">Mostrando Registros Por</label>
+
+  <a class='dropdown-trigger btn' href='#' data-target='DropdownMes' id="textdrop">Mes</a>
+
+  <!-- Dropdown Structure -->
+  <ul id='DropdownMes' class='dropdown-content'>
+    <li class="divider" tabindex="-1"></li>
+    <li><a href="#!" onclick="Dia()"><i class="material-icons">view_comfy</i>Dia</a></li>
+    <li class="divider" tabindex="-1"></li>
+    <li><a href="#!" onclick="Mes()"><i class="material-icons">view_compact</i>Mes</a></li>
+    <li class="divider" tabindex="-1"></li>
+    <li><a href="#!" onclick="Anio()"><i class="material-icons">view_stream</i>Año</a></li>
+  </ul>
+      </div>
+    </div>
+</div> 
+
+ <br> 
+  <div class="AlignTabla">
+  <div class="Tabla">
+   <table class="centered">
+     <thead class="TablaHead">
+            <tr>
+                <th class="TablaHead">Mes</th>
+                <th class="TablaHead">Litros Consumidos</th>
+                <th class="TablaHead">Litros Necesarios</th>
+                <th class="TablaHead">Tipo De Consumo</th>                                      
+             </tr>
+     </thead>
+     <tbody id="tabla2" class="TablaBody">  
+          <th></th>
+          <th></th>
+          <th></th>
+          <th></th>
+     </tbody>
+ </table>
+</div>
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+</div>
+
+
+<div id="TablaAnio" hidden="">
+
+<!-- Mostrando registros por:  -->
+
+  <div class="BeforeAlignBuscador2" id="BeforeAlignBuscador3">
+    <div class="AlignBuscador2">
+      <div>
+          <!-- Dropdown Trigger -->
+          <label for="" id="HolaAnio">Hola</label>
+              <label id="MostrandoRegPorAnio" class="lavel">Mostrando Registros Por</label>
+
+  <a class='dropdown-trigger btn' href='#' data-target='DropdownAnio' id="textdrop">Año</a>
+
+  <!-- Dropdown Structure -->
+  <ul id='DropdownAnio' class='dropdown-content'>
+    <li class="divider" tabindex="-1"></li>
+    <li><a href="#!" onclick="Dia()"><i class="material-icons">view_comfy</i>Dia</a></li>
+    <li class="divider" tabindex="-1"></li>
+    <li><a href="#!" onclick="Mes()"><i class="material-icons">view_compact</i>Mes</a></li>
+    <li class="divider" tabindex="-1"></li>
+    <li><a href="#!" onclick="Anio()"><i class="material-icons">view_stream</i>Año</a></li>
+  </ul>
+      </div>
+    </div>
+</div> 
+
+ <br> 
+  <div class="AlignTabla">
+  <div class="Tabla">
+   <table class="centered">
+     <thead class="TablaHead">
+            <tr>
+                <th class="TablaHead">Año</th>
+                <th class="TablaHead">Litros Consumidos</th>
+                <th class="TablaHead">Litros Necesarios</th>
+                <th class="TablaHead">Tipo De Consumo</th>                                      
+             </tr>
+     </thead>
+     <tbody id="tabla3" class="TablaBody">  
+          <th></th>
+          <th></th>
+          <th></th>
+          <th></th>
+     </tbody>
+ </table>
+</div>
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+</div>
+
+
+
+<div id="TablaNotificaciones" hidden="">
+
+<!-- BUSCADOR DIA  -->       
+
+  <div class="BeforeAlignBuscador">
+    <div class="AlignBuscador">
+  <div>
+  <input type="text" class="datepicker" id="fecha2" placeholder="Fecha Específica" autocomplete="none">
+    <a class="waves-dark btn" id="clicke2"><i class="material-icons right">search</i>Buscar</a>
+  </div>
+    </div>
+</div>
+
+<br>
+
+  <div class="AlignTabla">
+  <div class="Tabla">
+   <table class="centered">
+     <thead class="TablaHead">
+            <tr>
+                <th class="TablaHead">Fecha</th>
+                <th class="TablaHead">Reporte</th>                                 
+             </tr>
+     </thead>
+     <tbody id="tabla4" class="TablaBody">  
+
+     </tbody>
+ </table>
+</div>
+</div>
+<br>
+<br>
+<br>
+</div>
+
+
+
+
+<div id="TablaDiaBusqueda2" hidden="">
+
+
+  <div class="BeforeAlignBuscador">
+    <div class="AlignBuscador">
+  <div>
+  <input type="text" class="datepicker" id="fecha2" placeholder="Fecha Específica" autocomplete="none">
+    <a class="waves-dark btn" id="clicke2"><i class="material-icons right">search</i>Buscar</a>
+  </div>
+    </div>
+</div> 
+<center>
+  <h3>Resultados:</h3>
+</center>
+  <div class="BeforeActDatos">
+    <div class="ActDatos">
+      <div>
+        <a class="waves-dark btn" onclick="ActDatosNoti()" id="ActDatos">
+          <i class="material-icons left">refresh</i>Actualizar Datos</a>
+      </div>
+  </div>
+</div>
+<br>
+  <div class="AlignTabla">
+  <div class="Tabla">
+   <table class="centered">
+     <thead class="TablaHead">
+            <tr>
+                <th class="TablaHead">Fecha</th>
+                <th class="TablaHead">Reporte</th>                               
+             </tr>
+     </thead>
+     <tbody id="tabla" class="TablaBody">
+          <tr>
+          <td id="tabfechanoti"></td>
+          <td id="tabreporte"></td>
+          </tr>  
+     </tbody>
+ </table>
+
+</div>
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+</div>
+
+
+<div id="TablaDatosTiempoReal"> 
+
+
+<!-- <div class="slidecontainer">
+  <input type="range" min="1" max="100" value="50" class="slidere" id="myRange">
+</div> -->
+
+<div class="TablaDatosTiempoRealA"> <!-- INICIO DE TIEMPO REAL "A" -->
+
+<br>
+<input type="text" id="inputH" hidden="">
+<input type="text" id="inputD" hidden="">
+<input type="text" id="inputM" hidden="">
+<input type="text" id="inputA" hidden="">
+
+
+<div class="Circulos">
+<svg id="fillgauge6" width="19%" height="200"></svg> <!-- aqua -->
+<svg id="fillgauge2" width="19%" height="200"></svg>  <!-- pink -->
+<svg id="fillgauge3" width="19%" height="200"></svg>  <!-- purple -->
+<svg id="fillgauge4" width="19%" height="200"></svg>  <!-- skyblue -->
+
+<svg id="fillgauge1" width="97%" height="250"></svg>
+<svg id="fillgauge5" width="19%" height="500"></svg>
+
+</div>
+
+<div class="CirculosTexto">
+  <div><p id="textH" class="ptextE" style="color: teal">Número de habitantes en casa</p></div>
+  <div><p id="textD" class="ptextE" style="color: #e91e63 ">Litros de agua a consumir por dia</p></div>
+  <div><p id="textM" class="ptextE" style="color: #673ab7">Litros de agua a consumir por mes</p></div>
+  <div><p id="textA" class="ptextE" style="color: #2196f3">Litros de agua a consumir por año</p></div>
+</div>
+
+
+<script>
+    
+
+function Circulos(){
+
+
+
+    document.getElementById('fillgauge1').style.display = 'none';
+    document.getElementById('fillgauge5').style.display = 'none';
+
+    var inputH = document.getElementById('inputH').value;
+    var inputD = document.getElementById('inputD').value;
+    var inputM = document.getElementById('inputM').value;
+    var inputA = document.getElementById('inputA').value;
+
+    document.getElementById("range").max = inputD;
+    document.getElementById("range1A").max = inputD;
+
+    document.getElementById("range2").max = inputM;
+    document.getElementById("range2A").max = inputM;
+
+    document.getElementById("range3").max = inputA;
+    document.getElementById("range3A").max = inputA;
+
+    // RANGO DE LITROS NECESARIOS (SEGUNDAS LINEAS)    
+
+     document.getElementById('range1A').value = inputD; // VALOR DE RANGO EN SI
+
+     document.getElementById('range2A').value = inputM; // VALOR DE RANGO EN SI
+
+     document.getElementById('range3A').value = inputA; // VALOR DE RANGO EN SI  
+
+
+    //CODIGO DE LOS CIRCULOS
+     
+    var gauge1 = loadLiquidFillGauge("fillgauge1", +inputH);
+    var config1 = liquidFillGaugeDefaultSettings();
+    config1.circleColor = "#FF7777";
+    config1.textColor = "#FF4444";
+    config1.waveTextColor = "#FF5858";
+    config1.waveColor = "#E0A5A5";
+    config1.circleThickness = 0.2;
+    config1.textVertPosition = 0.2;
+    config1.waveAnimateTime = 1000;
+    config1.displayPercent = false;
+    config1.minValue = 30;
+    config1.maxValue = 2000 
+
+    var gauge2= loadLiquidFillGauge("fillgauge2", +inputD, config1);
+    var config2 = liquidFillGaugeDefaultSettings();
+    config2.circleColor = "#8F6AD4";
+    config2.textColor = "#200055";
+    config2.waveTextColor = "#9964F1";
+    config2.waveColor = "#8339AA";
+    config2.circleThickness = 0.1;
+    config2.circleFillGap = 0.2;
+    config2.textVertPosition = 0.8;
+    config2.waveAnimateTime = 2000;
+    config2.waveHeight = 0.3;
+    config2.waveCount = 1;
+    config2.displayPercent = false;
+    config2.minValue = 30;
+    config2.maxValue = 50000  
+
+    var gauge3 = loadLiquidFillGauge("fillgauge3", +inputM, config2);
+    var config3 = liquidFillGaugeDefaultSettings();
+    config3.circleColor = "#6AC9D4";
+    config3.textColor = "#004655";
+    config3.waveTextColor = "#64CFD5";
+    config3.waveColor = "#399EAA";    
+    config3.textVertPosition = 0.8;
+    config3.waveAnimateTime = 5000;
+    config3.waveHeight = 0.15;
+    config3.waveAnimate = true;
+    config3.waveOffset = 0.25;
+    config3.valueCountUp = true;
+    config3.displayPercent = false;
+    config3.minValue = 30;
+    config3.maxValue = 600100
+
+    var gauge4 = loadLiquidFillGauge("fillgauge4", +inputA, config3);
+    var config4 = liquidFillGaugeDefaultSettings();
+    config4.circleThickness = 0.15;
+    config4.circleColor = "#808015";
+    config4.textColor = "#555500";
+    config4.waveTextColor = "#FFFFAA";
+    config4.waveColor = "#AAAA39";
+    config4.textVertPosition = 0.8;
+    config4.waveAnimateTime = 1000;
+    config4.waveHeight = 0.05;
+    config4.waveAnimate = true;
+    config4.waveRise = false;
+    config4.waveHeightScaling = false;
+    config4.waveOffset = 0.25;
+    config4.textSize = 0.75;
+    config4.waveCount = 3;
+
+    var gauge5 = loadLiquidFillGauge("fillgauge5", 60.44, config4);
+    var config5 = liquidFillGaugeDefaultSettings();
+    config5.circleThickness = 0.4;
+    config5.circleColor = "#6DA398";
+    config5.textColor = "#0E5144";
+    config5.waveTextColor = "#6DA398";
+    config5.waveColor = "#246D5F";
+    config5.textVertPosition = 0.52;
+    config5.waveAnimateTime = 5000;
+    config5.waveHeight = 0;
+    config5.waveAnimate = true;
+    config5.waveCount = 2;
+    config5.waveOffset = 0.25;
+    config5.textSize = 1.2;
+    config5.minValue = 30;
+    config5.maxValue = 150
+    config5.displayPercent = false;
+    var gauge6 = loadLiquidFillGauge("fillgauge6", +inputH, config5);
+    
+    function NewValue(){
+        if(Math.random() > .5){
+            return Math.round(Math.random()*100);
+        } else {
+            return (Math.random()*100).toFixed(1);
+        }
+    }
+
+
+
+
+}
+</script>
+</div> <!-- FIN DE TIEMPO REAL "A" -->
+
+
+<br>
+<br>
+
+  <hr style="width:90%">
+
+<div class="TablaDatosTiempoRealB"> <!-- INICIO DE TIEMPO REAL "B" -->
+
+<script>
+    $(document).ready(function(){
+        $('.modal').modal();
+        $('.dropdown-trigger').dropdown();
+    });
+</script>
+
+<br>
+<center>
+  <h4 id="TextBar">Consumo De Agua En Tiempo Real</h4>
+</center>
+<br>
+      <!-- CARD 1 --><!-- CARD 1 --><!-- CARD 1 --><!-- CARD 1 --><!-- CARD 1 -->
+    <center>
+          <div class="row valign-wrapper Card3 MenuPrinc card-panel hoverable">
+            <div class="col s3">
+              <br>
+              <img src="img/inputD.png" alt="" class="circle responsive-img"> <!-- notice the "circle" class -->
+            </div>
+<div class="BeforeRango">
+  <center>
+    <div class="CRango">
+    <div class="BeforeText">
+      <div>
+        <h5 class="TextBar"><b>Litros En Consumo:</b></h5>  <!-- LETRA -->
+      </div>
+      <div>
+        <h5 class="TextBar" id="inputTRI"></h5> 
+      </div>
+    </div>
+    <div class="range-fielde">
+      <input type="range" id="range" min="0" disabled="" /> <!-- DATO -->
+    </div>
+    </div>
+    <div class="CRango">
+    <div class="BeforeText">
+      <div>
+        <h5 class="TextBar"><b>Litros Necesarios:</b></h5> <!-- LETRA -->
+      </div>
+      <div>
+        <h5 class="TextBar" id="inputDG1"></h5> 
+      </div>
+    </div>
+    <div class="range-fielde">
+      <input type="range" id="range1A" min="0" value="100" disabled="" /> <!-- DATO -->
+    </div>
+    </div>    
+    </center>  
+</div>   
+          </div>
+    <center>
+
+<br>
+
+
+
+<!-- CARD 2 --><!-- CARD 2 --><!-- CARD 2 --><!-- CARD 2 --><!-- CARD 2 -->
+
+
+    <center>
+          <div class="row valign-wrapper Card3 MenuPrinc card-panel hoverable">
+            <div class="col s3">
+              <br>
+              <img src="img/inputM.png" alt="" class="circle responsive-img"> <!-- notice the "circle" class -->
+            </div>
+<div class="BeforeRango">
+  <center>
+    <div class="CRango">
+    <div class="BeforeText">
+      <div>
+        <h5 class="TextBar"><b>Litros En Consumo:</b></h5>  <!-- LETRA -->
+      </div>
+      <div>
+        <h5 class="TextBar" id="inputTRI2"></h5> 
+      </div>
+    </div>
+    <div class="range-fielde">
+      <input type="range" id="range2" min="0" disabled="" /> <!-- DATO -->
+    </div>
+    </div>
+    <div class="CRango">
+    <div class="BeforeText">
+      <div>
+        <h5 class="TextBar"><b>Litros Necesarios:</b></h5> <!-- LETRA -->
+      </div>
+      <div>
+        <h5 class="TextBar" id="inputDG2"></h5> 
+      </div>
+    </div>
+    <div class="range-fielde">
+      <input type="range" id="range2A" min="0" disabled="" /> <!-- DATO -->
+    </div>
+    </div>    
+    </center>  
+</div>   
+          </div>
+    <center>
+
+<br>
+
+
+
+
+
+<!-- CARD 3 --><!-- CARD 3 --><!-- CARD 3 --><!-- CARD 3 --><!-- CARD 3 -->
+
+
+
+     <center>
+          <div class="row valign-wrapper Card3 MenuPrinc card-panel hoverable">
+            <div class="col s3">
+              <br>
+              <img src="img/inputA.png" alt="" class="circle responsive-img"> <!-- notice the "circle" class -->
+            </div>
+<div class="BeforeRango">
+  <center>
+    <div class="CRango">
+    <div class="BeforeText">
+      <div>
+        <h5 class="TextBar"><b>Litros En Consumo:</b></h5>  <!-- LETRA -->
+      </div>
+      <div>
+        <h5 class="TextBar" id="inputTRI3"></h5> 
+      </div>
+    </div>
+    <div class="range-fielde">
+      <input type="range" id="range3" min="0" disabled="" /> <!-- DATO -->
+    </div>
+    </div>
+    <div class="CRango">
+    <div class="BeforeText">
+      <div>
+        <h5 class="TextBar"><b>Litros Necesarios:</b></h5> <!-- LETRA -->
+      </div>
+      <div>
+        <h5 class="TextBar" id="inputDG3"></h5> 
+      </div>
+    </div>
+    <div class="range-fielde">
+      <input type="range" id="range3A" min="0" disabled="" /> <!-- DATO -->
+    </div>
+    </div>    
+    </center>  
+</div>   
+      </div>
+    <center>
+
+
+
+</div> <!-- FIN DE TIEMPO REAL "B" -->
+</div>
+
+
+<div id="TablaEstadisticas" hidden=""> 
+
+<!-- ESTADISTICAS LAS 5 ULTIMAS FECHAS -->
+<div id="5Fechas">
+
+<div class="cinco-fechas-borde">
+	<b><p>Fecha 1</p></b>
+	<input id="FechaActual1" value="">
+	<b><p>Datos Fecha 1</p></b>
+	<input id="fData1" value="">
+	<input id="lcData1" value="">
+	<input id="lnData1" value="">
+	<input id="tcData1" value="">
+</div>
+<div class="cinco-fechas-borde">
+	<b><p>Fecha -2</p></b>
+	<input id="FechaActual2" value="">
+	<b><p>Datos Fecha -2</p></b>
+	<input id="fData2" value="">
+	<input id="lcData2" value="">
+	<input id="lnData2" value="">
+	<input id="tcData2" value="">
+</div>
+<div class="cinco-fechas-borde">
+	<b><p>Fecha -3</p></b>
+	<input id="FechaActual3" value="">
+	<b><p>Datos Fecha -3</p></b>
+	<input id="fData3" value="">
+	<input id="lcData3" value="">
+	<input id="lnData3" value="">
+	<input id="tcData3" value="">
+</div>
+
+</div>
+
+
+<script>
+	window.onload = function(){
+  var fecha = new Date(); //Fecha 1
+  var mes = fecha.getMonth(); //obteniendo mes "se le tiene que agregar +1"
+  var dia = fecha.getDate(); //obteniendo dia
+  var ano = fecha.getFullYear(); //obteniendo año ==== dia+"-"+mes+"-"+ano
+  document.getElementById('FechaActual1').value=dia+"-"+mes+"-"+ano; 
+
+  var fecha = new Date(); //Fecha 2
+  var mes = fecha.getMonth(); //obteniendo mes "se le tiene que agregar +1"
+  var dia = fecha.getDate()-1; //obteniendo dia
+  var ano = fecha.getFullYear(); //obteniendo año ==== dia+"-"+mes+"-"+ano
+  document.getElementById('FechaActual2').value=dia+"-"+mes+"-"+ano; 
+
+  var fecha = new Date(); //Fecha 3
+  var mes = fecha.getMonth(); //obteniendo mes "se le tiene que agregar +1"
+  var dia = fecha.getDate()-2; //obteniendo dia
+  var ano = fecha.getFullYear(); //obteniendo año ==== dia+"-"+mes+"-"+ano
+  document.getElementById('FechaActual3').value=dia+"-"+mes+"-"+ano;   
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function Graph(){
+
+      google.charts.load('current', {'packages':['bar']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+
+    var dia_1_f = document.getElementById('fData1').value;
+    var dia_1_lc = document.getElementById('lcData1').value;
+    var dia_1_ln = document.getElementById('lnData1').value;
+    var dia_1_tc = document.getElementById('tcData1').value;
+
+        var data = google.visualization.arrayToDataTable([
+          ['Water Meter Web', 'Litros De Agua Consumidos', 'Expenses'],
+          [dia_1_f, dia_1_ln, dia_1_lc],
+          ['2015', 1170, 460],
+          ['2016', 660, 1120]
+          ]);
+
+        var options = {
+      title: 'Company Performance',
+      hAxis: {title: 'Water Meter Web', titleTextStyle: {color: 'black'}},
+      colors: ['#00bfa5', '#004d40'],
+      backgroundColor: { fill:'transparent' },
+      is3D:true
+	  };	
+
+        var chart = new google.charts.Bar(document.getElementById('columnchart_material'));
+        chart.draw(data, google.charts.Bar.convertOptions(options));
+
+      }
+
+
+
+    //   google.charts.load('current', {'packages':['corechart']});
+    //   google.charts.setOnLoadCallback(drawChart);
+
+    //   function drawChart() {
+    //   	var dat = document.getElementById('lcData1').value;
+    //     var data = google.visualization.arrayToDataTable([
+    //       ['Task', 'Hours per Day'],
+    //       ['Work', +dat],
+    //       ['Eat',      2],
+    //       ['Commute',  2],
+    //       ['Watch TV', 2],
+    //       ['Sleep',    7]
+    //     ]);
+
+    //     var options = {
+    //       title: 'My Daily Activities',
+    //       backgroundColor: { fill:'transparent' }
+    //     };
+
+    //     var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+    //     chart.draw(data, options);
+    //   }
+    }
+
+    </script>
+
+   <!--  <div id="piechart" style="width: 900px; height: 500px;"></div> -->
+    <div id="columnchart_material" style="width: 800px; height: 500px;"></div>
+</div>
+
+<br>
+<br>
+<br>
+<br>
+
+<br>
+<br>
+<br>
+<br>
+
+
+<p id="notSHidden" hidden=""></p> <!-- DATOS INVISIBLES DE NOTIFICACIONES -->
+<p id="modooscuro" hidden=""></p> <!-- DATOS INVISIBLES DEL MODO OSCURO -->  
+</div> <!-- END DIV HOME -->
+
+ <footer class="page-footer teal">
+      <div class="row">
+        <div class="col l1">
+          
+        </div>
+        <div class="col  l5 s12" >
+          <h5 class="white-text" >Equipo de Water Meter</h5>
+          <p class="grey-text text-lighten-4">"3 Desarrollo de Software "A"</p>
+      </div>
+
+        <div class="col l3 s12" >
+          <h5 class="white-text">Numero de telefono</h5>
+          <ul>
+            <li><a class="white-text" href="#!">2429-1439</a></li>
+
+          </ul>
+        </div>
+        <div class="col l3 s12">
+          <h5 class="white-text">Facebook Oficial</h5>
+          <ul>
+            <li><a class="white-text" target="blank"
+            href="https://es-la.facebook.com/INSTITUTO-NACIONAL-DE-SONZACATE-INSO-221703914512939/">INSO</a></li>
+          </ul>
+        </div>
+      </div>          
+          <div class="footer-copyright teal darken-2">
+            <div class="container">
+            © 2019 Water Meter Web
+            <a class="grey-text text-lighten-4 right" href="#!">Contacto: WaterMeter0@gmail.com</a>
+            <a href="#modalCoffee" class="modal-trigger">
+              <i class="material-icons" style="color: #4db6ac">local_cafe</i></a>
+            </div>
+          </div>
+        </footer>
+
+	  <script src="js/app5.js"></script>
+  </body>
+</html>
+
+

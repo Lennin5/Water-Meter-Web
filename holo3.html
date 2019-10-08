@@ -1,0 +1,48 @@
+<html>
+  <head>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <style>
+      .chartt{
+        border: 1px solid red;
+        color: blue;
+      }
+    </style>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['bar']});
+      google.charts.setOnLoadCallback(drawChart);
+
+
+      function drawChart() {
+
+
+
+        var numi = 500;
+        var data = google.visualization.arrayToDataTable([
+          ['Year', 'Sales', 'Expenses', 'Profit'],
+          ['2014', numi, 400, 200],
+          ['2015', 1170, 460, 250],
+          ['2016', 660, 1120, 300]
+          ]);
+
+        var options = {
+      title: 'Company Performance',
+      hAxis: {title: 'Year', titleTextStyle: {color: 'black'}},
+      colors: ['teal','#00bfa5', '#004d40'],
+      backgroundColor: { fill:'transparent' },
+      is3D:true
+};
+
+        var chart = new google.charts.Bar(document.getElementById('columnchart_material'));
+
+        chart.draw(data, google.charts.Bar.convertOptions(options));
+
+
+
+
+      }
+    </script>
+  </head>
+  <body>
+    <div id="columnchart_material" style="width: 800px; height: 500px;"></div>
+  </body>
+</html>

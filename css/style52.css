@@ -1,0 +1,356 @@
+.cinco-fechas-borde{
+		border: 1px solid red;
+}
+
+/*input[type="range"] {
+   position: absolute;
+   top: 90%;
+   transform: rotate(270deg);
+
+}*/
+
+h2, h3, h5{
+	color: black;
+
+}
+
+.Main{
+/*	border: 1px solid red;*/
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.Main_Login{
+	display: flex;
+	justify-content: center;
+
+}
+
+.Main_BtnIngresar{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.footer-foot{
+	width: 200%;
+}
+
+.TablaHead{
+	background-color: #515151;
+	color: white;
+}
+
+.TablaBody{
+	background-color: #6D6D6D;
+	color: white;
+}
+
+.scroll { 
+     margin:4px, 4px; 
+     padding:4px; 
+     background-color: ; 
+     width: 500px; 
+     height: 30px; 
+     overflow-x: hidden; 
+     overflow-x: auto; 
+     text-align:justify; 
+}
+
+.AlignTabla{
+	display: flex;
+	justify-content: center;
+}   
+
+
+.BeforeAlignBuscador{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+/*	border: 1px solid green;*/
+	width: 100%;
+}
+
+.BeforeAlignBuscador2{
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+/*	border: 1px solid blue;*/
+	width: 100%;
+}
+
+.AlignBuscador{
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+/*	border: 1px solid red;*/
+	width: 94%;
+}             
+
+.AlignBuscador2{
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+/*	border: 1px solid red;*/
+	width: 97%;
+}  
+
+#fecha{
+/*	border: 1px solid black;*/
+    border-bottom: 2px solid #4db6ac;
+	width: 50%;
+	height: 35px;
+}
+
+#fecha2{
+/*	border: 1px solid black;*/
+    border-bottom: 2px solid #4db6ac;
+	width: 50%;
+	height: 35px;
+}
+
+.lavel{
+	font-size: 1em;
+}
+
+.Tabla{
+	width: 90%;
+}
+
+.tap-target{
+	background-color: teal;	
+	border: 2px solid aqua;
+
+}
+
+
+.tap-target-content{
+	background-color: #009688;
+	border-left: 2px solid aqua;
+	border-top: 2px solid aqua;
+	color: white;
+
+}
+
+.BeforeActDatos{
+	display: flex;
+	justify-content: center;
+
+/*	border: 1px solid red;	*/
+}
+
+.ActDatos{
+	display: flex;
+	justify-content: center;
+
+/*	border: 1px solid blue;*/
+	width: 90%;
+}   
+
+.BeforeMenuPrinc{
+	display: flex;
+	justify-content: center;
+
+
+}
+
+.MenuPrinc{
+	justify-content: flex-start;
+	align-items: center;
+/*	border: 1px solid blue;*/
+	width: 90%;
+}   
+
+
+/*.tabs .indicator{
+	background-color: teal;
+}
+
+.tabs .tab a:focus, .tabs .tab a:focus.active{
+	background: #e0f2f1;
+}*/
+
+
+.product-info-tab-links {
+  list-style: none;
+  margin: 0 0 0 .75rem;
+  padding: 0;
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: space-around;
+}
+
+.product-info-tab-links li a {
+  display: block;
+  padding: .5rem 1rem;
+  border-bottom: none;
+  /*border-top-left-radius: 4px;
+  border-top-right-radius: 4px;*/
+  text-decoration: none;
+  position: relative;
+}
+.product-info-tab-links li a.active {
+  border-bottom: 2px solid #4db6ac;
+  background-color: #e1f9ff;
+  z-index: 3;
+}
+
+.product-info-tab {
+  border: #999 solid 1px;
+  padding: 1em;
+  max-width: 400px;
+  background-color: #e1f9ff;
+}
+
+
+.dropdown-content{
+   width: max-content !important;
+   height:auto !important;
+}
+
+.card{
+	border: none;
+}
+
+.Circulos{
+/*	border: 1px solid red;*/
+	display: flex;
+	justify-content: space-around;
+}
+
+.CirculosTexto{
+/*	border: 1pc solid blue;*/
+	display: flex;
+	justify-content: space-around;
+}
+
+.ptextE{
+	font-size: 1.4em;
+}
+
+
+
+
+.chartt{
+/*	border: 1px solid blue;*/
+}
+
+
+
+
+
+
+.Card3{
+	background-color: red;
+}
+
+
+
+
+.BeforeRango{
+	width: 90%;
+/*	border: 1px solid red;*/
+}
+
+.BeforeText{
+/*	border: 1px solid green;*/
+	display: flex;
+	justify-content: center;
+	align-items: flex-end;
+}
+
+.TextBar{
+	font-size: 1.4em;
+	color: #696969;
+}
+
+
+
+.CRango{
+/*	border: 1px solid blue;*/
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-end;
+	width: 80%;
+
+}
+
+.range-fielde{
+/*	border: 1px solid red;*/
+	width: 100%;
+	color: transparent;
+
+}
+
+
+.BeforeSpan{
+	display: flex;
+	justify-content: flex-start;
+
+}
+
+/*.graficas{
+	width: 3%;
+	height: 100%;
+  	border: 1px solid red;
+  	justify-content: flex-start;
+  	align-items: flex-start;
+
+
+}
+
+
+
+.slider-wrapper {
+  display: inline-block;
+  width: 300px;
+  height: 150px;
+  color: transparent;
+}*/
+
+/*.slider-wrapper input {
+  width: 150px;
+  height: 20px;
+  transform-origin: 75px 75px;
+  transform: rotate(-90deg);
+
+}
+*/
+
+.side-color-text-head{
+	color: white;
+}
+
+.side-color-text-body{
+	color: black;
+}
+
+.BeforeItemBody{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+/*	border: 1px solid red;*/
+}
+
+.porfile{
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	background-color: teal;
+	width: 15%;
+	border: 1px solid aqua;
+	border-style: double;
+}
+
+.BeforeUserTxt{
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+}
+
+.mobile-nav{
+	color: white;
+	
+}
