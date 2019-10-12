@@ -393,5 +393,30 @@ h2, h3, h5{
 .BeforeCirclePerfile{
 	display: flex;
 	justify-content: flex-end;
+	align-items: center;
 }
 
+.BeforeBeforeMenuLineal{
+	display: flex;
+	justify-content: center;
+}
+
+.BeforeMenuLineal{
+	width: 90%;
+}
+
+.BeforeCircleCharts{
+	display: flex;
+	justify-content: flex-end;
+}
+
+.BeforeTry{
+	display: flex;
+	justify-content: space-between;
+}
+
+.TablaRadar{
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+}

@@ -10,7 +10,7 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 
-  <link href="css/style58.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="css/style62.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 
 <!--  Scripts -->
   <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
@@ -121,7 +121,7 @@
         	<div class="Main_Login">
 
         		<div>
-  <h3>Iniciar Sesión</h3>
+  <center><h3>Iniciar Sesión</h3></center>
 
    <div class="row">
     <div class="col s12">
@@ -164,48 +164,45 @@
 
 <br>
 
+
+
   <!-- MODAL CORREO INCORRECTO -->
-  <div id="modalInvalidEmail" class="modal">
-    <div class="modal-content">
-      <h4>Correo Electronico Invalido</h4>
-      <p>A bunch of text</p>
-    </div>
-    <div class="modal-footer">
-      <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
-    </div>
-  </div>
+<script>
+  function ToastInvalidEmail(){
+  M.toast({html: 'Correo Electrónico Incorrecto!'});
+}
+</script>
 
   <!-- MODAL PASS INCORRECTA -->
-  <div id="modalInvalidPass" class="modal">
-    <div class="modal-content">
-      <h4>ContraseñaIncorrecta</h4>
-      <p>A bunch of text</p>
-    </div>
-    <div class="modal-footer">
-      <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
-    </div>
-  </div>
+<script>
+  function ToastInvalidPass(){
+  M.toast({html: 'Contraseña Incorrecta!'});
+}
+</script>
 
   <!-- MODAL USUARIO NO EXISTE -->
-  <div id="modalUserNotFound" class="modal">
-    <div class="modal-content">
-      <h4>Usuario No Encontrado</h4>
-      <p>A bunch of text</p>
-    </div>
-    <div class="modal-footer">
-      <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
-    </div>
-  </div>
+<script>
+  function ToastUserNotFound(){
+  M.toast({html: 'Usuario No encontrado!'});
+}
+</script>
 
+  <!-- MODAL MUCHOS INTENTOS -->
+<script>
+  function ToastManyRequests(){
+  M.toast({html: 'Datos No Validos, Espera un momento...'});
+}
+</script>
 
   <!-- MODAL REGISTRAR NO FUNCIONA -MODAL  -->
   <div id="modal1" class="modal">
-    <div class="modal-content">
-      <h4>Modal Header</h4>
-      <p>A bunch of text</p>
+    <div class="modal-content grey lighten-4">
+      <h4>No puedes registrarte</h4>
+      <p>Water Meter Web solo funciona como un "Modo Vista Más Completo" de todo el sistema del mismo, 
+          probablemente este apartado se añada en futuras actualizaciones. Gracias por su comprensión.</p>
     </div>
     <div class="modal-footer">
-      <a href="#!" class="modal-close waves-effect waves-green btn-flat"></a>
+      <a href="#!" class="modal-close waves-effect waves-teal btn-flat">Cerrar</a>
     </div>
   </div>
 
@@ -256,26 +253,51 @@
 
 
   <!-- MODAL AYUDA -->
-  <div id="modalAyuda" class="modal bottom-sheet">
-    <div class="modal-content">
-      <h4>Modal Header</h4>
-      <p>A bunch of text</p>
+  <div id="modalAyuda" class="modal modal-fixed-footer">
+    <div class="modal-content grey lighten-4">
+      <h4>Modal Ayuda</h4>
+      <p><b>Water Meter</b> se divide en dos partes principales, siendo éstas el montaje de hardware en los hogares; y la información que el usuario brinda a través a la aplicación.</p>
+      <p><b>Water Meter Web,</b> es un modo de vista del sistema que reune información de ambas partes, ofreciendo una visualizaión más sencilla de éstas.</p>
+      <p>Es decir que esta página web está diseñada en base a la información brindada en la aplicación <b>Water Meter.</b> Lo que quiere decir que la informacion presente, no puede ser alterada.</p>
     </div>
-    <div class="modal-footer">
-      <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+    <div class="modal-footer grey lighten-4">
+      <a href="#!" class="modal-close waves-effect waves-teal btn-flat">Salir</a>
     </div>
   </div>
 
   <!-- MODAL INFO -->
-  <div id="modalInfo" class="modal">
-    <div class="modal-content">
-      <h4>Modal Info</h4>
-      <p>A bunch of text</p>
+  <div id="modalInfo" class="modal modal-fixed-footer">
+    <div class="modal-content helpers">
+    	<center>
+    		<img src="img/info.jpg" id="ImgInfo" width="30%">
+    	</center>
+      <center>
+      	<b>Water Meter</b>
+      	<p>Versión 1.0.0</p>
+        <br>
+
+        <h3>Creadres del proyecto</h3>
+        <br>
+        <h5>Programador y diseñador de App</h5>
+        <p>Leninin Lemus Diaz</p>
+        <br>
+        <h5>Programador de sistema web</h5>
+        <p>Samuel Francisco Perez Guirola</p>
+        <br>
+        <h5>Ensambladores de hardware</h5>
+        <p>Francis Fuentes Cardoza</p>
+        <p>Rodrigo Javier Alfaro Calderon</p>
+        <br>
+        <h5>Programadores de hardware</h5>
+        <p>Mario Gerardo Martir Crespin</p>
+        <p>Rodrigo Javier Alfaro Calderon</p>
+
+      </center>
     </div>
-    <div class="modal-footer">
-      <a href="#!" class="modal-close waves-effect waves-teal btn-flat">Agree</a>
+    <div class="modal-footer helpers">
+      <a href="#!" class="modal-close waves-effect waves-teal btn-flat">Salir</a>
     </div>
-  </div>  
+  </div>
 
 <div class="navbar-fixed">
   <nav>
@@ -319,7 +341,7 @@
       Cerrar Sesion</a></li>
   </ul>
 
-
+<p>Recordatorio Importante: Cambiar numero de los 5/10 dias de las graficas lineales</p>
 <br>
 
 <script>
@@ -334,12 +356,19 @@ function ApexSide(){
 
     var inputH = document.getElementById('inputH').value;
     var inputD = document.getElementById('inputD').value;
+    var inputS = document.getElementById('inputD').value*8;
     var inputM = document.getElementById('inputM').value;
     var inputA = document.getElementById('inputA').value;
 
+
+
+
+
+//OTRO
         var options = {
             chart: {
                 height: 270,
+                width: 300,
                 type: 'radialBar',
             },
             plotOptions: {
@@ -434,9 +463,10 @@ function ApexSide(){
   </ul>
 
 <!-- HEADER QUE NO DESAPARECE // SELECCIONADOR DE VISTAS -->
-      <li><a href="#!" class="sidenav-titulos"><i class="material-icons"></i><b>Datos Principales  </b>
+      <li><a href="#!" class="sidenav-titulos"><i class="material-icons"></i><b>Datos Principales</b>
         <button class='dropdown-trigger' href='#' data-target='dropdown1'
         style="color: white; background-color: teal">Vista</button></a></li>
+
 
 <!-- INICIO DE VISTA PERFIL EN FORMA DE GRAFICA -->
 <div class="BeforeCirclePerfile" id="PerfilCirculo" hidden="">
@@ -855,11 +885,241 @@ function ApexSide(){
 </div>
 
 
+<div id="CollapseRadar" hidden="">
+<div class="BeforeCollapside">
+  <div class="collapsible-all" id="RadarNoti">
+    <ul class="collapsible popout transparent">
+    <li> 
+      <div class="collapsible-header helpers teal-text"><i class="material-icons">
+      wifi_tethering</i>MOSTRAR RADAR DE NOTIFICACIONES</div>
+      <div class="collapsible-body helpers">
+        <div id="TablaRadar" class="TablaRadar">
+          <div style="width: 50%">
+            <div id="chartnoti"></div>
+          </div>
+          <div style="width: 50%">
+            <div id="chartnotibar"></div>
+          </div>
+            </div>
+      </div>
+    </li>
+    <li>
+  </ul>
+  </div>
+</div>
+</div>
+
 
 <div id="TablaNotificaciones" hidden="">
 
-<!-- BUSCADOR DIA  -->       
 
+
+<br>
+<script>
+
+  $("#RadarNoti").one( "click", function() {
+    setTimeout("RadarNoti()", 1000);
+  });
+
+function RadarNoti(){
+// DATOS: ULTIMOS 7 FECHAS DE NOTIFICACION
+    var dia_1_f = document.getElementById('fData1').value;
+    var dia_2_f = document.getElementById('fData2').value;
+    var dia_3_f = document.getElementById('fData3').value;
+    var dia_4_f = document.getElementById('fData4').value;
+    var dia_5_f = document.getElementById('fData5').value;
+    var dia_6_f = document.getElementById('fData6').value;
+    var dia_7_f = document.getElementById('fData7').value;
+
+// DATOS: ULTIMOS 7 LC DE NOTIFICACION
+    var dia_1_lc = document.getElementById('lcData1').value;
+    var dia_2_lc = document.getElementById('lcData2').value;
+    var dia_3_lc = document.getElementById('lcData3').value;
+    var dia_4_lc = document.getElementById('lcData4').value;
+    var dia_5_lc = document.getElementById('lcData5').value;
+    var dia_6_lc = document.getElementById('lcData6').value;
+    var dia_7_lc = document.getElementById('lcData7').value;
+
+// DATOS: ULTIMOS 7 R DE NOTIFICACION
+    var dia_1_r = document.getElementById('rData1').value;
+    var dia_2_r = document.getElementById('rData2').value;
+    var dia_3_r = document.getElementById('rData3').value;
+    var dia_4_r = document.getElementById('rData4').value;
+    var dia_5_r = document.getElementById('rData5').value;
+    var dia_6_r = document.getElementById('rData6').value;
+    var dia_7_r = document.getElementById('rData7').value;
+
+          var options = {
+            chart: {
+                height: 390,
+                type: 'radar',
+                toolbar: {
+                  show: false
+              }    
+            },      
+            dataLabels: {
+              style: {
+                colors: ['black'],
+                fontSize: '14px'
+              }
+            },
+            series: [{
+                name: 'Litros Consumidos',
+                data: [dia_1_lc,
+                         dia_2_lc,
+                          dia_3_lc,
+                           dia_4_lc,
+                            dia_5_lc,
+                             dia_6_lc,
+                              dia_7_lc],
+            }],
+            labels: [dia_1_f, dia_2_f, dia_3_f, dia_4_f, dia_5_f, dia_6_f, dia_7_f],
+            plotOptions: {
+                radar: {
+                    size: 140,
+                    polygons: {
+                        strokeColor: '#00B488',
+                        fill: {
+                            colors: ['#7ED3BE', '#C2F1E5']
+                        }
+                    }
+                }
+            },
+            title: {
+                text: 'Estadisticas De La Ultima Semana (7 Días) De Notificaciones',
+                align: 'center',
+                style: {
+                fontSize:  '16px',
+                color:  'black'
+              },
+            },
+            colors: ['#A80202'],
+            markers: {
+                size: 4,
+                colors: ['red'],
+                strokeColor: '#FF4560',
+                strokeWidth: 2,
+            },
+            tooltip: {
+                y: {
+                    formatter: function(val) {
+                        return val + " Litros"
+                    }   
+                }
+            },
+            yaxis: {
+                tickAmount: 7,
+                labels: {
+                    formatter: function(val, i) {
+                        if(i % 2 === 0) {
+                            return val
+                        } else {
+                            return ''
+                        }
+                    }
+                }
+            }
+        }
+
+        var chart = new ApexCharts(
+            document.querySelector("#chartnoti"),
+            options
+        );
+
+        chart.render();
+
+// LINEAS HORIZONTALES
+
+        var options = {
+            chart: {
+                height: 390,
+                type: 'bar',
+                toolbar: {
+                  show: false
+              },   
+            },
+            plotOptions: {
+                bar: {
+                    barHeight: '100%',
+                    distributed: true,
+                    horizontal: true,
+                    dataLabels: {
+                        position: 'bottom'
+                    },
+                }
+            },
+            colors: ['#44A38C', '#6AD5BA', '#44A38C', '#6AD5BA', '#44A38C', '#6AD5BA', '#44A38C'],
+            dataLabels: {
+                enabled: true,
+                textAnchor: 'start',
+                style: {
+                    colors: ['black']
+                },
+                formatter: function(val, opt) {
+                    return opt.w.globals.labels[opt.dataPointIndex] + ":  " + val
+                },
+                offsetX: 0,
+                dropShadow: {
+                  enabled: false
+                }
+            },
+            series: [{
+                data: [dia_1_lc, dia_2_lc, dia_3_lc, dia_4_lc, dia_5_lc, dia_6_lc, dia_7_lc]
+            }],
+            stroke: {
+                width: 1,
+              colors: ['#F5F5F5']
+            },
+            xaxis: {
+                categories: [dia_1_f+': '+dia_1_r,
+                              dia_2_f+': '+dia_2_r,
+                                dia_3_f+': '+dia_3_r,
+                                  dia_4_f+': '+dia_4_r,
+                                    dia_5_f+': '+dia_5_r,
+                                      dia_6_f+': '+dia_6_r,
+                                        dia_7_f+': '+dia_7_r],
+            },
+            yaxis: {
+                labels: {
+                    show: false
+                }
+            },
+            title: {
+                text: 'Reporte De Consumo',
+                align: 'center',
+              style: {
+              fontSize:  '16px',
+                color:  'black'
+              },
+            },
+            tooltip: {
+                theme: 'dark',
+                x: {
+                    show: false
+                },
+                y: {
+                    title: {
+                        formatter: function() {
+                            return ''
+                        }
+                    }
+                }
+            }
+        }
+
+       var chart = new ApexCharts(
+            document.querySelector("#chartnotibar"),
+            options
+        );
+        
+        chart.render();
+
+
+      } 
+</script>
+
+<!-- BUSCADOR DIA  -->       
+<div id="TablaLista">
   <div class="BeforeAlignBuscador">
     <div class="AlignBuscador">
   <div>
@@ -890,7 +1150,7 @@ function ApexSide(){
 <br>
 <br>
 </div>
-
+</div>
 
 
 
@@ -947,6 +1207,9 @@ function ApexSide(){
 <br>
 <br>
 </div>
+
+
+
 
 
 <div id="TablaDatosTiempoReal"> 
@@ -1289,6 +1552,7 @@ function Circulos(){
 	<input id="lcData1" value="">
 	<input id="lnData1" value="">
 	<input id="tcData1" value="">
+  <input id="rData1" value="">
 </div>
 <div class="cinco-fechas-borde">
 	<b><p>Fecha -2</p></b>
@@ -1298,6 +1562,7 @@ function Circulos(){
 	<input id="lcData2" value="">
 	<input id="lnData2" value="">
 	<input id="tcData2" value="">
+  <input id="rData2" value="">
 </div>
 <div class="cinco-fechas-borde">
 	<b><p>Fecha -3</p></b>
@@ -1307,6 +1572,7 @@ function Circulos(){
 	<input id="lcData3" value="">
 	<input id="lnData3" value="">
 	<input id="tcData3" value="">
+  <input id="rData3" value="">
 </div>
 <div class="cinco-fechas-borde">
   <b><p>Fecha -4</p></b>
@@ -1316,6 +1582,7 @@ function Circulos(){
   <input id="lcData4" value="">
   <input id="lnData4" value="">
   <input id="tcData4" value="">
+  <input id="rData4" value="">
 </div>
 <div class="cinco-fechas-borde">
   <b><p>Fecha -5</p></b>
@@ -1325,7 +1592,70 @@ function Circulos(){
   <input id="lcData5" value="">
   <input id="lnData5" value="">
   <input id="tcData5" value="">
+  <input id="rData5" value="">
 </div>
+
+
+
+<div class="cinco-fechas-borde">
+  <b><p>Fecha -6</p></b>
+  <input id="FechaActual6" value="">
+  <b><p>Datos Fecha -6</p></b>
+  <input id="fData6" value="">
+  <input id="lcData6" value="">
+  <input id="lnData6" value="">
+  <input id="tcData6" value="">
+  <input id="rData6" value="">
+</div>
+<div class="cinco-fechas-borde">
+  <b><p>Fecha -7</p></b>
+  <input id="FechaActual7" value="">
+  <b><p>Datos Fecha -7</p></b>
+  <input id="fData7" value="">
+  <input id="lcData7" value="">
+  <input id="lnData7" value="">
+  <input id="tcData7" value="">
+  <input id="rData7" value="">
+</div>
+<div class="cinco-fechas-borde">
+  <b><p>Fecha -8</p></b>
+  <input id="FechaActual8" value="">
+  <b><p>Datos Fecha -8</p></b>
+  <input id="fData8" value="">
+  <input id="lcData8" value="">
+  <input id="lnData8" value="">
+  <input id="tcData8" value="">
+</div>
+<div class="cinco-fechas-borde">
+  <b><p>Fecha -9</p></b>
+  <input id="FechaActual9" value="">
+  <b><p>Datos Fecha -9</p></b>
+  <input id="fData9" value="">
+  <input id="lcData9" value="">
+  <input id="lnData9" value="">
+  <input id="tcData9" value="">
+</div>
+<div class="cinco-fechas-borde">
+  <b><p>Fecha -10</p></b>
+  <input id="FechaActual10" value="">
+  <b><p>Datos Fecha -10</p></b>
+  <input id="fData10" value="">
+  <input id="lcData10" value="">
+  <input id="lnData10" value="">
+  <input id="tcData10" value="">
+</div>
+
+
+<!-- <div class="cinco-fechas-borde">
+  <b><p>Fecha 11 - Mes</p></b>
+  <input id="FechaActual11" value="">
+  <b><p>Datos Fecha 11 Mes</p></b>
+  <input id="fData11" value="">
+  <input id="lcData11" value="">
+  <input id="lnData11" value="">
+  <input id="tcData11" value="">
+</div> -->
+
 
 </div>
 
@@ -1362,6 +1692,39 @@ function Circulos(){
   var ano = fecha.getFullYear(); //obteniendo año ==== dia+"-"+mes+"-"+ano
   document.getElementById('FechaActual5').value=dia+"-"+mes+"-"+ano;  
 
+  // OTROS 5 DIAS
+
+  var fecha = new Date(); //Fecha 3
+  var mes = fecha.getMonth(); //obteniendo mes "se le tiene que agregar +1"
+  var dia = fecha.getDate()-6; //obteniendo dia
+  var ano = fecha.getFullYear(); //obteniendo año ==== dia+"-"+mes+"-"+ano
+  document.getElementById('FechaActual6').value=dia+"-"+mes+"-"+ano; 
+
+  var fecha = new Date(); //Fecha 3
+  var mes = fecha.getMonth(); //obteniendo mes "se le tiene que agregar +1"
+  var dia = fecha.getDate()-7; //obteniendo dia
+  var ano = fecha.getFullYear(); //obteniendo año ==== dia+"-"+mes+"-"+ano
+  document.getElementById('FechaActual7').value=dia+"-"+mes+"-"+ano; 
+
+  var fecha = new Date(); //Fecha 3
+  var mes = fecha.getMonth(); //obteniendo mes "se le tiene que agregar +1"
+  var dia = fecha.getDate()-8; //obteniendo dia
+  var ano = fecha.getFullYear(); //obteniendo año ==== dia+"-"+mes+"-"+ano
+  document.getElementById('FechaActual8').value=dia+"-"+mes+"-"+ano; 
+
+  var fecha = new Date(); //Fecha 3
+  var mes = fecha.getMonth(); //obteniendo mes "se le tiene que agregar +1"
+  var dia = fecha.getDate()-9; //obteniendo dia
+  var ano = fecha.getFullYear(); //obteniendo año ==== dia+"-"+mes+"-"+ano
+  document.getElementById('FechaActual9').value=dia+"-"+mes+"-"+ano; 
+
+  var fecha = new Date(); //Fecha 3
+  var mes = fecha.getMonth(); //obteniendo mes "se le tiene que agregar +1"
+  var dia = fecha.getDate()-10; //obteniendo dia
+  var ano = fecha.getFullYear(); //obteniendo año ==== dia+"-"+mes+"-"+ano
+  document.getElementById('FechaActual10').value=dia+"-"+mes+"-"+ano;
+
+
 }
 
 
@@ -1392,6 +1755,33 @@ function Graph(){
     var dia_5_ln = document.getElementById('lnData5').value;
     var dia_5_tc = document.getElementById('tcData5').value; 
 
+    var dia_6_f = document.getElementById('fData6').value;
+    var dia_6_lc = document.getElementById('lcData6').value;
+    var dia_6_ln = document.getElementById('lnData6').value;
+    var dia_6_tc = document.getElementById('tcData6').value;
+
+    var dia_7_f = document.getElementById('fData7').value;
+    var dia_7_lc = document.getElementById('lcData7').value;
+    var dia_7_ln = document.getElementById('lnData7').value;
+    var dia_7_tc = document.getElementById('tcData7').value;    
+
+    var dia_8_f = document.getElementById('fData8').value;
+    var dia_8_lc = document.getElementById('lcData8').value;
+    var dia_8_ln = document.getElementById('lnData8').value;
+    var dia_8_tc = document.getElementById('tcData8').value; 
+
+    var dia_9_f = document.getElementById('fData9').value;
+    var dia_9_lc = document.getElementById('lcData9').value;
+    var dia_9_ln = document.getElementById('lnData9').value;
+    var dia_9_tc = document.getElementById('tcData9').value;     
+
+    var dia_10_f = document.getElementById('fData10').value;
+    var dia_10_lc = document.getElementById('lcData10').value;
+    var dia_10_ln = document.getElementById('lnData10').value;
+    var dia_10_tc = document.getElementById('tcData10').value; 
+
+// GRAFICO DE BARRAS VERTICAL 
+
   var color = ['#009E8A', '#00E396'];
 
       var options = {
@@ -1405,7 +1795,11 @@ function Graph(){
             },
             title: {
         text: 'Estadisticas De Los Ultimos 5 Días De Consumo De Agua',
-        offsetX: 10
+        align: 'left',
+                style: {
+                    fontSize: "16px",
+                    color: 'black'
+                }
       },
             plotOptions: {
                 bar: {
@@ -1458,7 +1852,7 @@ function Graph(){
 
         chart.render();
 
-//LINEAL CHART
+//LINEAL CHART 5 DIAS
 
         var options = {
             chart: {
@@ -1520,7 +1914,7 @@ function Graph(){
             },
             yaxis: {
                 title: {
-                    text: 'Engagement',
+                    text: 'Litros De Agua',
                 },                
             }
         }
@@ -1532,35 +1926,119 @@ function Graph(){
         
         chart.render();
 
-}
 
 
-// GRAFICO DE PASTEL
 
-//       google.charts.load('current', {'packages':['corechart']});
-//       google.charts.setOnLoadCallback(drawChart);
+//LINEAL CHART 10 DIAS
 
-//       function drawChart() {
-//       	var dat = document.getElementById('lcData1').value;
-//         var data = google.visualization.arrayToDataTable([
-//           ['Task', 'Hours per Day'],
-//           ['Work', +dat],
-//           ['Eat',      2],
-//           ['Commute',  2],
-//           ['Watch TV', 2],
-//           ['Sleep',    7]
-//         ]);
+        var options = {
+            chart: {
+                toolbar: {
+             show: false,
+              },
+                height: 350,
+                type: 'line',
+                shadow: {
+                    enabled: false,
+                    color: '#bbb',
+                    top: 3,
+                    left: 2,
+                    blur: 3,
+                    opacity: 1
+                },
+            },
+            stroke: {
+                width: 7,   
+                curve: 'smooth'
+            },
+            series: [{
+                name: 'Lirtos Consumidos',
+                data: [0, dia_1_lc, dia_2_lc, dia_3_lc, dia_4_lc, dia_5_lc,
+                        dia_6_lc, dia_7_lc, dia_8_lc, dia_9_lc, dia_10_lc, 0]
+            }],
+            xaxis: {
+                categories: [0, dia_1_f, dia_2_f, dia_3_f, dia_4_f, dia_5_f,
+                              dia_6_f, dia_7_f, dia_8_f, dia_9_f, dia_10_f, 0]
+            },
+            title: {
+                text: 'Estadisticas De Los Ultimos 10 Días De Consumo De Agua',
+                align: 'left',
+                style: {
+                    fontSize: "16px",
+                    color: 'black'
+                }
+            },
+            fill: {
+                type: 'gradient',
+                gradient: {
+                    shade: 'dark',
+                    gradientToColors: [ '#23EFAA'],
+                    shadeIntensity: 1,
+                    type: 'horizontal',
+                    opacityFrom: 1,
+                    opacityTo: 1,
+                    stops: [0, 100, 100, 100]
+                },
+            },
+            markers: {
+                size: 4,
+                opacity: 0.9,
+                colors: ["red"],
+                strokeColor: "#fff",
+                strokeWidth: 2,
+                 
+                hover: {
+                    size: 7,
+                }
+            },
+            yaxis: {
+                title: {
+                    text: 'Litros De Agua',
+                },                
+            }
+        }
 
-//         var options = {
-//           title: 'My Daily Activities',
-//           backgroundColor: { fill:'transparent' }
-//         };
+       var chart = new ApexCharts(
+            document.querySelector("#chartline2"),
+            options
+        );
+        
+        chart.render();
 
-//         var chart = new google.visualization.PieChart(document.getElementById('piechart'));
 
-//         chart.draw(data, options);
-//       }
-    
+// GRAFICO DE PASTEL MES
+
+      // google.charts.load('current', {'packages':['corechart']});
+      // google.charts.setOnLoadCallback(drawChart);
+
+      // function drawChart() {
+
+      //   var data = google.visualization.arrayToDataTable([
+      //     ['Task', 'Hours per Day'],
+      //     ['Work',    2],
+      //     ['Eat',      2],
+      //     ['Commute',  2],
+      //     ['Watch TV', 2],
+      //     ['Sleep',    7]
+      //   ]);
+
+      //   var options = {
+      //     title: 'Estadisticas De Consumo De Agua Del Mes Actual',
+      //     backgroundColor: { fill:'transparent' }
+      //   };
+
+      //   var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+      //   chart.draw(data, options);
+      // }
+
+
+
+
+
+
+
+}  
 
     </script>
 
@@ -1577,10 +2055,14 @@ function Graph(){
   <div class="collapsible-all">
     <ul class="collapsible popout transparent">
     <li> 
-      <div class="collapsible-header grey lighten-2"><i class="material-icons">
+      <div class="collapsible-header helpers teal-text"><i class="material-icons">
       equalizer</i>DESCRIPCIÓN DE GRÁFICO DE BARRAS</div>
-      <div class="collapsible-body">
-
+      <div class="collapsible-body helpers">
+          <p class="black-text">ESTE GRÁFICO DE BARRAS VERTICAL MUESTRA LOS REGISTROS DE LOS ULTIMOS 5 DIAS DE CONSUMO
+          QUE SE HAN HECHO EN EL HOGAR, EN ÉL SE PUEDE APRECIAR DE UNA FORMA GRÁFICA LOS DATOS QUE SE
+        HAN PROCESADO HASTA EL PRESENTE DÍA.EN LA PARTE INFERIOR DEL GRÁFICO SE MUESTRAN EN ORDEN DE DERECHA A IZQUIERDA LAS FECHAS DE LOS ULTIMOS 5 DIAS DE CONSUMO DE AGUA, EN CONJUNTO CON UNAS BARRAS COLOR TEAL-OSCURO, QUE MUESTRAN LOS LITROS A CONSUMIR POR FAMILIA, Y LAS BARRAS COLOR TEAL-CLARO MUESTRAN LOS LITROS CONSUMIDOS.</p>
+        <br>
+        <p class="black-text">NOTA: PUEDES VISUALIZAR LOS DATOS DE UNA MEJOR MANERA HACIENDO CLICK EN LOS INDICADORES DE LA DERECHA PARA MOSTRAR UNA MEJOR PRE-VISUALIZACION DE LOS MISMOS</p>
       </div>
     </li>
     <li>
@@ -1588,24 +2070,50 @@ function Graph(){
   </div>
 </div>
 
+
+
 <br>
 <hr style="width:90%">
 <br>
+
+  <!-- Dropdown Grafico Lineal -->
+<div class="BeforeBeforeMenuLineal">
+  <div class="BeforeMenuLineal">
+    <a class='dropdown-trigger btn' href='#' data-target='dropdown-lineal'>Mostrando Ultimos:</a>
+  </div>
+</div>  
+<br>
+
+
+
+  <!-- Dropdown Structure -->
+  <ul id='dropdown-lineal' class='dropdown-content'>
+    <li><a href="#!" onclick="LinealChart5()"><i class="material-icons">show_chart</i>5 Dias</a></li>
+    <li class="divider" tabindex="-1"></li>
+    <li><a href="#!" onclick="LinealChart10()"><i class="material-icons">show_chart</i>10 Dias</a></li>
+  </ul>
 
         <div class="Before5Dias">
           <div id="chartline" style="width: 90%; height: 100px;"></div>
             <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
         </div>
 
-   <!--  <div id="piechart" style="width: 900px; height: 500px;"></div> -->
+        <div class="Before5Dias">
+          <div id="chartline2" style="width: 90%; height: 100px;" hidden=""></div>
+            <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+        </div>
+
+   
 <div class="BeforeCollapside">
   <div class="collapsible-all">
     <ul class="collapsible popout transparent">
     <li> 
-      <div class="collapsible-header grey lighten-2"><i class="material-icons">
+      <div class="collapsible-header helpers teal-text"><i class="material-icons">
       show_chart</i>DESCRIPCIÓN DE GRÁFICO LINEAL</div>
-      <div class="collapsible-body">
-
+      <div class="collapsible-body helpers">
+        <p class="black-text">EN COMPARACIÓN CON EL GRÁFICO ANTERIOR, ESTE ES UN GRÁFICO LINEAL EN EL CUAL SE MUESTRA DE UNA FORMA MÁS LIMPIA Y ORDENADA LOS ALTOS Y BAJOS DEL CONSUMO DE AGUA DE LOS ULTIMOS 5 DIAS DE CONSUMO DE AGUA YA QUE SE MUESTRAN SOLAMENTE LOS DATOS DE LOS LITROS CONSUMIDOS.</p>
+        <br>
+        <p class="black-text">TAMBIÉN, A DIFERENCIA DEL GRÁFICO ANTERIOR EN ESTE GRÁFICO LINEAL SE PUEDE CAMBIAR LA VISTA DE LOS 5 ANTERIORES DIAS DE CONSUMO, POR 10. SOLAMENTE BASTA CON SELECCIONAR LA OPCION EN EL MENÚ QUE SE MUESTRA EN LA PARTE IZQUIERA "MOSTRANDO ULTIMOS".</p>
       </div>
     </li>
     <li>
@@ -1614,7 +2122,30 @@ function Graph(){
 </div>
 
 
+<!-- <br>
+<hr style="width:90%">
+<br>
+
+        <div class="Before5Dias" style="border: 1px solid red">
+           <div id="piechart" style="width: 900px; height: 500px; border: 1px solid red"></div>
+        </div>
+  
+   
+<div class="BeforeCollapside">
+  <div class="collapsible-all">
+    <ul class="collapsible popout transparent">
+    <li> 
+      <div class="collapsible-header helpers teal-text"><i class="material-icons">
+      show_chart</i>DESCRIPCIÓN DE GRÁFICO DE PASTEL</div>
+      <div class="collapsible-body helpers">
+      </div>
+    </li>
+    <li>
+  </ul>
+  </div>
+  </div> -->
     
+
 </div>
 
 <br>
@@ -1667,7 +2198,7 @@ function Graph(){
           </div>
         </footer>
 
-	  <script src="js/app7.js"></script>
+	  <script src="js/app10.js"></script>
   </body>
 </html>
 
