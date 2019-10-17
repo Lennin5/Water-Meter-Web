@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Water Meter Web - Información</title>
+    <link href="https://vjs.zencdn.net/7.2/video-js.min.css" rel="stylesheet">
+	  <script src="https://vjs.zencdn.net/7.2/video.min.js"></script>
+    <link rel="stylesheet" href="css/estilos.css">
+    <link href="https://fonts.googleapis.com/css?family=Fira+Sans&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
+    <script src="js/video.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Be+Vietnam|Raleway&display=swap" rel="stylesheet">
+    <link rel="icon" href="img/Inicio.jpg">
+
+    <nav style="background:  #32D6F7; height: 65px;" class="Nav">
+      <form class="form-inline">
+        <p class="navbar-brand">
+    <img src="" width="10" height="20" class="d-inline-block align-top" alt="">
+    <img src="img/WM.jpg" width="55" height="55" class="d-inline-block align-top" alt="">
+    <h3  class="navbar-brand" style="font-family: 'Raleway', sans-serif;"> Water Meter</h3>
+    </p>
+    </form>
+    </nav>
+
+  </head>
+  <body style=" background: #F5F5F5;">
+    <br>
+    <center>
+    <h2 class="Integrantes">
+     <p style="font-family: 'Raleway', sans-serif;">Water Meter Presentación</p>
+    </h2>
+    </center>
+
+ <main>
+ 		<div class="contenedor2">
+ 			<video class="fm-video video-js vjs-16-9 vjs-big-play-centered" data-setup="{}" controls id="fm-video">
+ 				<source src="video/WaterMeterVideo.mp4" type="video/mp4">
+ 			</video>
+
+ 			<article>
+ 				<h2>Water Meter</h2>
+ 				<p>Es un proyecto creado y diseñado desde cero, con el propósito de mejorar el manejo y distribución del agua en los hogares, ocupando las tecnologías para lograrlo. Utilizando nuestros conocimientos de programación y ensamblaje, para combinar software y hardware con agua.</p><br />
+
+ 				<p>Este proyecto funciona en base a tres partes principales, siendo estas:</p>
+        <p><b>Hardware: </b>Contamos con un sensor de flujo de agua, para la medición del agua enviando datos al arduino UNO, para posteriormente mandar dichos datos vía Bluetooth a nuestra aplicación. </p>
+          <p><b>Software: </b>Por su parte el software cuenta con una aplicación móvil y una pagina web, las cuales manejan los datos del consumo de agua enviados por el sensor en tiempo real.
+          Primeramente la aplicación, es el controlador principal de todo el sistema "Water Meter", ya que en ella se controlan todos los procesos principales como: llevar un registro del consumo de agua, apoyado de un buscador de datos en base a datos reales de ANDA.
+        Por otra parte, nuestro portal web es un agregado donde se visualiza de manera más sencilla y a la vez detalla, los datos de consumo de agua independientemente de estadísticas del consumo que se realiza en el hogar.</p>
+        <p><b>Lógica: </b>Por esta parte ocupamos la lógica matemática para poder desarrollar soluciones para este proyecto, Tales como la tranformación de L a m³ y el manejo de datos de cobro de ANDA por medio de matemática básica y investigaciones de distintas ramas.</p>
+      </article>
+ 		</div>
+ 	</main>
+
+ 	<script>
+ 		var reproductor = videojs('fm-video', {
+ 			fluid: true
+ 		});
+ 	</script>
+
+  <center>
+  <h2 class="Integrantes">
+   <p style="font-family: 'Raleway', sans-serif;">Integrantes de Water Meter</p>
+  </h2>
+  </center>
+
+   <div class="contenedor">
+     <div class="contenedor_tarjeta">
+       <a href="#">
+     <figure>
+       <img src="img/M.jpg" class="frontal" alt="">
+       <figcaption class="trasera">
+         <center>
+         <h2 class="titulo">Mario Gerardo Mártir Crespín</h2>
+       </center>
+         <hr>
+         <p><b>Edad: </b>18 años</p>
+         <p><b>Descripción: </b>Ensamblador y programador principal de hardware</p>
+       </figcaption>
+     </figure>
+     </a>
+    </div>
+
+
+
+     <div class="contenedor_tarjeta">
+       <a href="#">
+     <figure>
+       <img src="img/FF.jpg" style=" " class="frontal"  alt="">
+       <figcaption class="trasera">
+         <center>
+         <h2 class="titulo">Francis Eduardo Fuentes Cardoza</h2>
+       </center>
+         <hr>
+         <p><b>Edad: </b>18 años</p>
+         <p><b>Descripción: </b>Asistente de ensamblaje de hardware y diseño de app</p>
+       </figcaption>
+     </figure>
+     </a>
+    </div>
+
+
+    <div class="contenedor_tarjeta">
+      <a href="#">
+    <figure>
+      <img src="img/iL.png" style="" class="frontal"  alt="">
+      <figcaption class="trasera">
+        <center>
+        <h2 class="titulo">Lennin Josué Lemus Diaz</h2>
+      </center>
+        <hr>
+        <p><b>Edad: </b>18 años</p>
+        <p><b>Descripción: </b>Programador/diseñador de app movil y portal web.</p>
+      </figcaption>
+    </figure>
+    </a>
+   </div>
+
+   <div class="contenedor_tarjeta">
+     <a href="#">
+   <figure>
+     <img src="img/JJJ.jpg" style="" class="frontal"  alt="">
+     <figcaption class="trasera">
+       <center>
+       <h2 class="titulo">Rodrigo Javier Alfaro Calderón</h2>
+     </center>
+       <hr>
+       <p><b>Edad: </b>18 años</p>
+       <p><b>Descripción: </b>Programador de hardware y creador de pagina web de galerías</p>
+     </figcaption>
+   </figure>
+   </a>
+  </div>
+
+  <div class="contenedor_tarjeta">
+    <a href="#">
+  <figure>
+    <img src="img/S.jpg" style="" class="frontal"  alt="">
+    <figcaption class="trasera">
+      <center>
+      <h2 class="titulo">Samuel Francisco Pérez Guirola</h2>
+    </center>
+      <hr>
+      <p><b>Edad:  </b>18 años</p>
+      <p><b>Descripción: </b>Asistente a programador de app movil y Beta Tester.</p>
+    </figcaption>
+  </figure>
+  </a>
+  </div>
+   </div>
+
+
+<div class="card" >
+  <h3 class="card-header" style="font-family: 'Raleway', sans-serif;">WM</h3>
+  <div class="card-body">
+    <center>
+    <h4 class="card-title" style="font-family: 'Raleway', sans-serif;">Galería Water Meter</h4>
+    <p class="card-text">Acontinuación podremos ver fotos del trabajo realizado en equipo por parte de los integrantes.</p>
+    <a href="../water_meter_web/gallery.html" class="btn btn-primary" style=" background: teal;">Ver mas...</a>
+  </div>
+</div>
+
+  </body>
+</html>

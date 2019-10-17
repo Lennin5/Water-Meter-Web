@@ -302,7 +302,7 @@
 <div class="navbar-fixed">
   <nav>
     <div class="nav-wrapper teal">
-      <a href="#!" class="brand-logo" id="apellido"></a>
+      <a href="index.html" class="brand-logo" id="apellido"></a>
       <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
       <ul class="right hide-on-med-and-down">
        <li>
@@ -316,7 +316,8 @@
           </div>
         </li>
         <li><a href="#modalAyuda" class="modal-trigger"><i class="material-icons left">help</i>Ayuda</a></li>
-        <li><a href="#modalInfo" class="modal-trigger"><i class="material-icons left">info</i>Información</a></li>
+        <li><a href="http://localhost/water_meter_web/index2.html" class="modal-trigger" target="blank">
+          <i class="material-icons left">info</i>Información</a></li>
         <li><a href="#!" onclick="Salir()"><i class="material-icons left">subdirectory_arrow_left</i>
       Cerrar Sesion</a></li>
       <li><a href="#!"></a></li>
@@ -341,7 +342,6 @@
       Cerrar Sesion</a></li>
   </ul>
 
-<p>Recordatorio Importante: Cambiar numero de los 5/10 dias de las graficas lineales</p>
 <br>
 
 <script>
@@ -1663,31 +1663,31 @@ function Circulos(){
 <script>
 	window.onload = function(){
   var fecha = new Date(); //Fecha 1
-  var mes = fecha.getMonth(); //obteniendo mes "se le tiene que agregar +1"
+  var mes = fecha.getMonth()+1; //obteniendo mes "se le tiene que agregar +1"
   var dia = fecha.getDate()-1; //obteniendo dia
   var ano = fecha.getFullYear(); //obteniendo año ==== dia+"-"+mes+"-"+ano
   document.getElementById('FechaActual1').value=dia+"-"+mes+"-"+ano; 
 
   var fecha = new Date(); //Fecha 2
-  var mes = fecha.getMonth(); //obteniendo mes "se le tiene que agregar +1"
+  var mes = fecha.getMonth()+1; //obteniendo mes "se le tiene que agregar +1"
   var dia = fecha.getDate()-2; //obteniendo dia
   var ano = fecha.getFullYear(); //obteniendo año ==== dia+"-"+mes+"-"+ano
   document.getElementById('FechaActual2').value=dia+"-"+mes+"-"+ano; 
 
   var fecha = new Date(); //Fecha 3
-  var mes = fecha.getMonth(); //obteniendo mes "se le tiene que agregar +1"
+  var mes = fecha.getMonth()+1; //obteniendo mes "se le tiene que agregar +1"
   var dia = fecha.getDate()-3; //obteniendo dia
   var ano = fecha.getFullYear(); //obteniendo año ==== dia+"-"+mes+"-"+ano
   document.getElementById('FechaActual3').value=dia+"-"+mes+"-"+ano;
 
   var fecha = new Date(); //Fecha 4
-  var mes = fecha.getMonth(); //obteniendo mes "se le tiene que agregar +1"
+  var mes = fecha.getMonth()+1; //obteniendo mes "se le tiene que agregar +1"
   var dia = fecha.getDate()-4; //obteniendo dia
   var ano = fecha.getFullYear(); //obteniendo año ==== dia+"-"+mes+"-"+ano
   document.getElementById('FechaActual4').value=dia+"-"+mes+"-"+ano;
 
   var fecha = new Date(); //Fecha 3
-  var mes = fecha.getMonth(); //obteniendo mes "se le tiene que agregar +1"
+  var mes = fecha.getMonth()+1; //obteniendo mes "se le tiene que agregar +1"
   var dia = fecha.getDate()-5; //obteniendo dia
   var ano = fecha.getFullYear(); //obteniendo año ==== dia+"-"+mes+"-"+ano
   document.getElementById('FechaActual5').value=dia+"-"+mes+"-"+ano;  
@@ -1695,31 +1695,31 @@ function Circulos(){
   // OTROS 5 DIAS
 
   var fecha = new Date(); //Fecha 3
-  var mes = fecha.getMonth(); //obteniendo mes "se le tiene que agregar +1"
+  var mes = fecha.getMonth()+1; //obteniendo mes "se le tiene que agregar +1"
   var dia = fecha.getDate()-6; //obteniendo dia
   var ano = fecha.getFullYear(); //obteniendo año ==== dia+"-"+mes+"-"+ano
   document.getElementById('FechaActual6').value=dia+"-"+mes+"-"+ano; 
 
   var fecha = new Date(); //Fecha 3
-  var mes = fecha.getMonth(); //obteniendo mes "se le tiene que agregar +1"
+  var mes = fecha.getMonth()+1; //obteniendo mes "se le tiene que agregar +1"
   var dia = fecha.getDate()-7; //obteniendo dia
   var ano = fecha.getFullYear(); //obteniendo año ==== dia+"-"+mes+"-"+ano
   document.getElementById('FechaActual7').value=dia+"-"+mes+"-"+ano; 
 
   var fecha = new Date(); //Fecha 3
-  var mes = fecha.getMonth(); //obteniendo mes "se le tiene que agregar +1"
+  var mes = fecha.getMonth()+1; //obteniendo mes "se le tiene que agregar +1"
   var dia = fecha.getDate()-8; //obteniendo dia
   var ano = fecha.getFullYear(); //obteniendo año ==== dia+"-"+mes+"-"+ano
   document.getElementById('FechaActual8').value=dia+"-"+mes+"-"+ano; 
 
   var fecha = new Date(); //Fecha 3
-  var mes = fecha.getMonth(); //obteniendo mes "se le tiene que agregar +1"
+  var mes = fecha.getMonth()+1; //obteniendo mes "se le tiene que agregar +1"
   var dia = fecha.getDate()-9; //obteniendo dia
   var ano = fecha.getFullYear(); //obteniendo año ==== dia+"-"+mes+"-"+ano
   document.getElementById('FechaActual9').value=dia+"-"+mes+"-"+ano; 
 
   var fecha = new Date(); //Fecha 3
-  var mes = fecha.getMonth(); //obteniendo mes "se le tiene que agregar +1"
+  var mes = fecha.getMonth()+1; //obteniendo mes "se le tiene que agregar +1"
   var dia = fecha.getDate()-10; //obteniendo dia
   var ano = fecha.getFullYear(); //obteniendo año ==== dia+"-"+mes+"-"+ano
   document.getElementById('FechaActual10').value=dia+"-"+mes+"-"+ano;
