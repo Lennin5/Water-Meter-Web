@@ -303,7 +303,8 @@
   <nav>
     <div class="nav-wrapper teal">
       <a href="index.html" class="brand-logo" id="apellido"></a>
-      <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+      <a href="#" data-target="mobile-demo" class="sidenav-trigger" name="Menú"><i class="material-icons">menu</i></a>
+      <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">perm_contact_calendar</i></a>
       <ul class="right hide-on-med-and-down">
        <li>
           <div class="BeforeUserTxt">
@@ -318,7 +319,7 @@
         <li><a href="#modalAyuda" class="modal-trigger"><i class="material-icons left">help</i>Ayuda</a></li>
         <li><a href="http://localhost/water_meter_web/index2.html" class="modal-trigger" target="blank">
           <i class="material-icons left">info</i>Información</a></li>
-        <li><a href="#!" onclick="Salir()"><i class="material-icons left">subdirectory_arrow_left</i>
+        <li><a href="#!" onclick="Salir()"><i class="material-icons left">logout</i>
       Cerrar Sesion</a></li>
       <li><a href="#!"></a></li>
       </ul>
@@ -328,14 +329,14 @@
 
   <ul class="sidenav teal" id="mobile-demo">
     <center>
-      <h5 style="color: white">Menu</h5>
+      <h5 style="color: white" id="dropDownFamilyName"></h5>
     </center>
     <div class="divider"></div>
         <li><a href="#!" style="color: white">
-        <i class="material-icons left" style="color: white">perm_contact_calendar</i>Perfil</a></li>
-        <li><a href="#!" style="color: white">
+        <i class="material-icons left" style="color: white">perm_contact_calendar</i><p id="dropDownUserName"></p></a></li>
+        <li><a style="color: white" href="#modalAyuda" class="modal-trigger">
           <i class="material-icons left" style="color: white">help</i>Ayuda</a></li>
-        <li><a href="#!" style="color: white">
+        <li><a href="file:///C:/xampp/htdocs/water_meter_web/index2.html" target="blank" style="color: white">
           <i class="material-icons left" style="color: white">info</i>Información</a></li>
         <li><a href="#!" onclick="Salir()" style="color: white">
           <i class="material-icons left" style="color: white">subdirectory_arrow_left</i>
@@ -393,7 +394,7 @@ function ApexSide(){
                     }
                 }
             }, 
-            colors: ['#3BE8B1', '#FF7777', '#903BE8', '#3BB1E8'],
+            colors: ['#3BE8B1', '#FF7777', 'aqua', '#3BB1E8'],
             series: [inputH, inputD, inputM, inputA],
             labels: ['Hab En Casa', 'L. Diarios', 'L. Mensuales', 'L. Anuales'],
             legend: {
@@ -604,7 +605,7 @@ function ApexSide(){
 
 
 
-<div class="fixed-action-btn direction-top porfile">
+<div class="fixed-action-btn direction-top porfile" id="BtnProfileButtom">
   <div>
     <i class="material-icons medium" style="color: #f5f5f5">perm_contact_calendar</i>
   </div>
@@ -894,10 +895,10 @@ function ApexSide(){
       wifi_tethering</i>MOSTRAR RADAR DE NOTIFICACIONES</div>
       <div class="collapsible-body helpers">
         <div id="TablaRadar" class="TablaRadar">
-          <div style="width: 50%">
+          <div style="width: 50%" id="radarNotiBar">
             <div id="chartnoti"></div>
           </div>
-          <div style="width: 50%">
+          <div style="width: 50%" id="chartNotiBar">
             <div id="chartnotibar"></div>
           </div>
             </div>
@@ -1222,6 +1223,7 @@ function RadarNoti(){
 <div class="TablaDatosTiempoRealA"> <!-- INICIO DE TIEMPO REAL "A" -->
 
 <br>
+
 <input type="text" id="inputH" hidden="">
 <input type="text" id="inputD" hidden="">
 <input type="text" id="inputM" hidden="">
@@ -1234,10 +1236,11 @@ function RadarNoti(){
 <svg id="fillgauge3" width="19%" height="200"></svg>  <!-- purple -->
 <svg id="fillgauge4" width="19%" height="200"></svg>  <!-- skyblue -->
 
-<svg id="fillgauge1" width="97%" height="250"></svg>
+<svg id="fillgauge1" width="19%" height="250"></svg>
 <svg id="fillgauge5" width="19%" height="500"></svg>
-
 </div>
+
+
 
 <div class="CirculosTexto">
   <div><p id="textH" class="ptextE" style="color: teal">Número de habitantes en casa</p></div>
@@ -1246,13 +1249,9 @@ function RadarNoti(){
   <div><p id="textA" class="ptextE" style="color: #2196f3">Litros de agua a consumir por año</p></div>
 </div>
 
-
 <script>
-    
 
 function Circulos(){
-
-
 
     document.getElementById('fillgauge1').style.display = 'none';
     document.getElementById('fillgauge5').style.display = 'none';
@@ -1281,6 +1280,24 @@ function Circulos(){
 
 
     //CODIGO DE LOS CIRCULOS
+
+    var gauge5 = loadLiquidFillGauge("fillgauge5", 60.44, config4);
+    var config5 = liquidFillGaugeDefaultSettings();
+    config5.circleThickness = 0.4;
+    config5.circleColor = "#6DA398";
+    config5.textColor = "#0E5144";
+    config5.waveTextColor = "#6DA398";
+    config5.waveColor = "#246D5F";
+    config5.textVertPosition = 0.52;
+    config5.waveAnimateTime = 5000;
+    config5.waveHeight = 0;
+    config5.waveAnimate = true;
+    config5.waveCount = 2;
+    config5.waveOffset = 0.25;
+    config5.textSize = 1.2;
+    config5.minValue = 30;
+    config5.maxValue = 150
+    config5.displayPercent = false;
      
     var gauge1 = loadLiquidFillGauge("fillgauge1", +inputH);
     var config1 = liquidFillGaugeDefaultSettings();
@@ -1302,9 +1319,9 @@ function Circulos(){
     config2.waveTextColor = "#9964F1";
     config2.waveColor = "#8339AA";
     config2.circleThickness = 0.1;
-    config2.circleFillGap = 0.2;
-    config2.textVertPosition = 0.8;
-    config2.waveAnimateTime = 2000;
+    config2.circleFillGap = 0.1;
+    config2.textVertPosition = 0.6;
+    config2.waveAnimateTime = 3000;
     config2.waveHeight = 0.3;
     config2.waveCount = 1;
     config2.displayPercent = false;
@@ -1313,12 +1330,12 @@ function Circulos(){
 
     var gauge3 = loadLiquidFillGauge("fillgauge3", +inputM, config2);
     var config3 = liquidFillGaugeDefaultSettings();
-    config3.circleColor = "#6AC9D4";
+    config3.circleColor = "#6AC9D4"; 
     config3.textColor = "#004655";
     config3.waveTextColor = "#64CFD5";
     config3.waveColor = "#399EAA";    
-    config3.textVertPosition = 0.8;
-    config3.waveAnimateTime = 5000;
+    config3.textVertPosition = 0.8; //0.8
+    config3.waveAnimateTime = 1000;
     config3.waveHeight = 0.15;
     config3.waveAnimate = true;
     config3.waveOffset = 0.25;
@@ -1344,23 +1361,7 @@ function Circulos(){
     config4.textSize = 0.75;
     config4.waveCount = 3;
 
-    var gauge5 = loadLiquidFillGauge("fillgauge5", 60.44, config4);
-    var config5 = liquidFillGaugeDefaultSettings();
-    config5.circleThickness = 0.4;
-    config5.circleColor = "#6DA398";
-    config5.textColor = "#0E5144";
-    config5.waveTextColor = "#6DA398";
-    config5.waveColor = "#246D5F";
-    config5.textVertPosition = 0.52;
-    config5.waveAnimateTime = 5000;
-    config5.waveHeight = 0;
-    config5.waveAnimate = true;
-    config5.waveCount = 2;
-    config5.waveOffset = 0.25;
-    config5.textSize = 1.2;
-    config5.minValue = 30;
-    config5.maxValue = 150
-    config5.displayPercent = false;
+    
     var gauge6 = loadLiquidFillGauge("fillgauge6", +inputH, config5);
     
     function NewValue(){
@@ -1784,18 +1785,21 @@ function Graph(){
 
   var color = ['#009E8A', '#00E396'];
 
+  var currentdate = new Date();
+  var actualDay = currentdate.getDate() + "/" + (currentdate.getMonth()+1) + "/" + currentdate.getFullYear(); 
+
       var options = {
         colors: color,
             chart: {
               height: 350,
               type: 'bar',
               toolbar: {
-          show: false,
+          show: true,          
         },
             },
             title: {
-        text: 'Estadisticas De Los Ultimos 5 Días De Consumo De Agua',
-        align: 'left',
+                text: 'Estadisticas De Los Ultimos 5 Días De Consumo De Agua - '+actualDay,
+                align: 'left',
                 style: {
                     fontSize: "16px",
                     color: 'black'
@@ -1811,7 +1815,7 @@ function Graph(){
                 enabled: false,
             },
             stroke: {
-                show: true,
+                show: false,
                 width: 2,
             },
             series: [{
@@ -1834,7 +1838,7 @@ function Graph(){
                 }
             },
             fill: {
-                opacity: 1,
+                opacity: 9,
             },
             tooltip: {
                 y: {
@@ -1853,11 +1857,13 @@ function Graph(){
         chart.render();
 
 //LINEAL CHART 5 DIAS
+        var currentdate = new Date();
+        var actualDay = currentdate.getDate() + "/" + (currentdate.getMonth()+1) + "/" + currentdate.getFullYear();
 
         var options = {
             chart: {
                 toolbar: {
-             show: false,
+             show: true,
               },
                 height: 350,
                 type: 'line',
@@ -1875,14 +1881,14 @@ function Graph(){
                 curve: 'smooth'
             },
             series: [{
-                name: 'Lirtos Consumidos',
+                name: 'Litros Consumidos',
                 data: [0, dia_1_lc, dia_2_lc, dia_3_lc, dia_4_lc, dia_5_lc, 0]
             }],
             xaxis: {
                 categories: [0, dia_1_f, dia_2_f, dia_3_f, dia_4_f, dia_5_f, 0]
             },
             title: {
-                text: 'Estadisticas De Los Ultimos 5 Días De Consumo De Agua',
+                text: 'Estadisticas De Los Ultimos 5 Días De Consumo De Agua - '+actualDay,
                 align: 'left',
                 style: {
                     fontSize: "16px",
@@ -1930,11 +1936,13 @@ function Graph(){
 
 
 //LINEAL CHART 10 DIAS
+        var currentdate = new Date();
+        var actualDay = currentdate.getDate() + "/" + (currentdate.getMonth()+1) + "/" + currentdate.getFullYear();
 
         var options = {
             chart: {
                 toolbar: {
-             show: false,
+             show: true,
               },
                 height: 350,
                 type: 'line',
@@ -1952,7 +1960,7 @@ function Graph(){
                 curve: 'smooth'
             },
             series: [{
-                name: 'Lirtos Consumidos',
+                name: 'Litros Consumidos',
                 data: [0, dia_1_lc, dia_2_lc, dia_3_lc, dia_4_lc, dia_5_lc,
                         dia_6_lc, dia_7_lc, dia_8_lc, dia_9_lc, dia_10_lc, 0]
             }],
@@ -1961,7 +1969,7 @@ function Graph(){
                               dia_6_f, dia_7_f, dia_8_f, dia_9_f, dia_10_f, 0]
             },
             title: {
-                text: 'Estadisticas De Los Ultimos 10 Días De Consumo De Agua',
+                text: 'Estadisticas De Los Ultimos 10 Días De Consumo De Agua - '+actualDay,
                 align: 'left',
                 style: {
                     fontSize: "16px",
@@ -2050,6 +2058,13 @@ function Graph(){
           <div id="chart" style="width: 90%; height: 100px;"></div>
             <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
         </div>
+        <!-- <Button id="Clicker">Click Me! :)</Button> -->
+        <script>
+         $("#Clicker").click(function() {
+            alert('clicked');
+            $("#chart").load();
+          }); 
+        </script>        
 
 <div class="BeforeCollapside">
   <div class="collapsible-all">

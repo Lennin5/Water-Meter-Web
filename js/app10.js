@@ -38,7 +38,7 @@ function ingresar(){
       ToastManyRequests()
     }
 
-  // ...
+  // ... 
 });
 
 }
@@ -329,9 +329,48 @@ function Get_Datos_Usuario(){
 
 // DATOS PRINCIPALES DEL USUARIO DEL NAV
 
-  var apellido = document.getElementById('apellido');
-  var dbRef = firebase.database().ref("Usuarios/"+uid+"/Datos_Principales/").child('Apellido');
-  dbRef.on('value', snap => apellido.innerHTML = "Water Meter Web - Familia "+snap.val().replace(/['"]+/g, ''));
+var apellido = document.getElementById('apellido');
+var dbRef = firebase.database().ref("Usuarios/"+uid+"/Datos_Principales/").child('Apellido');        
+dbRef.on('value', snap => apellido.innerHTML = "Water Meter Web - Familia "+snap.val().replace(/['"]+/g, ''));
+
+
+// 2 DATOS del SideNav Menu
+dropDownUserName  
+
+  var nameFamilyDrop = document.getElementById("dropDownFamilyName"); // nombre de usuario del SIDENAV MENU
+  var dbRef = firebase.database().ref("Usuarios/"+uid+"/Datos_Principales/").child('Apellido');        
+  dbRef.on('value', snap => nameFamilyDrop.innerHTML = "Familia "+snap.val().replace(/['"]+/g, ''));
+
+  var nameUserDrop = document.getElementById('dropDownUserName'); //este es del rectangulo de abajo (bafore Perfil)
+  var dbRef = firebase.database().ref("Usuarios/"+uid+"/Datos_Principales/").child('Nombre');
+  dbRef.on('value', snap => nameUserDrop.innerHTML = snap.val().replace(/['"]+/g, ''));
+
+  var width = $(window).width();
+  $(window).on('resize', function() {
+    if ($(this).width() !== width) {
+      width = $(this).width();
+      if (width <= 1043) {
+        document.getElementById("apellido").innerHTML = "Water Meter Web";
+        document.getElementById("BtnProfileButtom").hidden = true;
+
+        document.getElementById("chartNotiBar").hidden = true;
+        document.getElementById("radarNotiBar").style.width = "100%";
+
+        //Responsive Circles        
+      }else{
+        var apellido = document.getElementById('apellido');
+        var dbRef = firebase.database().ref("Usuarios/"+uid+"/Datos_Principales/").child('Apellido');        
+        dbRef.on('value', snap => apellido.innerHTML = "Water Meter Web - Familia "+snap.val().replace(/['"]+/g, ''));
+        document.getElementById("BtnProfileButtom").hidden = false;
+        
+        document.getElementById("chartNotiBar").hidden = false;
+        document.getElementById("radarNotiBar").style.width = "50%";
+
+        //Responsive Circles        
+      }
+    }
+  });  
+  
 
   var nombreuser = document.getElementById('nombreuser'); //este es del rectangulo de abajo (bafore Perfil)
   var dbRef = firebase.database().ref("Usuarios/"+uid+"/Datos_Principales/").child('Nombre');
@@ -713,7 +752,8 @@ function Get_Datos_Usuario(){
 
 
   function MenuB(){
-    setTimeout("Circulos()", 1);
+
+    // setTimeout("Circulos()", 1);
 
     document.getElementById('TablaDia').style.display = 'none';
     document.getElementById('TablaDiaBusqueda').style.display = 'none';
@@ -731,11 +771,11 @@ function Get_Datos_Usuario(){
   }
 
   $("#GraphCircle").one( "click", function() {
-    setTimeout("ApexSide()", 1000);
+    setTimeout("ApexSide()", 1500);
   });
 
   $("#ApexChart").one( "click", function() {
-    setTimeout("Graph()", 1000);
+    setTimeout("Graph()", 1500);
   });
 
   function MenuC(){
